@@ -34,7 +34,11 @@ fitBoundsOptions: 15,
 },
 trackUserLocation: true,
 showUserHeading: true
+
+
+
 }));
+window.alert("1");
 
 
 map.addControl(geolocate);
@@ -46,7 +50,10 @@ geolocate.on('geolocate', function(e) {
       var lon = e.coords.longitude;
       var lat = e.coords.latitude
       var position = [lon, lat];
+      window.alert(position);
+
       console.log(position);
+      console.log("2");
 });
  
 map.on('style.load', () => {
