@@ -15,12 +15,31 @@
 <script>
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaWRsZWdhbWVyIiwiYSI6ImNsNnc0MTNpaDA0dnUzY28xM2NpbWo5NGYifQ.2znpvwwQuZbRG9-uY5Nvhg';
-const map = new mapboxgl.Map({container: 'map',style: 'mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk',zoom: 1.5,center: [30, 50],projection: 'globe'});
+const map = new mapboxgl.Map({
+container: 'map', 
+style: 'mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk',
+zoom: 10,
+center: [30, 50],
+projection: 'globe'});
  
 map.on('load', () => {
 // Set the default atmosphere style
 map.setFog({});
 });
+
+map.addControl(
+new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: true
+},
+// When active the map will receive updates to the device's location as it changes.
+trackUserLocation: true,
+// Draw an arrow next to the location dot to indicate which direction the device is heading.
+showUserHeading: true
+})
+);
+
+
 </script>
 
 </div>
