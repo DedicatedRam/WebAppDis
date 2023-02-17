@@ -11,52 +11,27 @@
 <script src="script.js"></script>
 <body>
 
-    <div class="collapseBut">
-
-    
+  <div class="collapseBut">
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         Collapse
       <i class="fa fa-bars"></i>
     </a>
-</div>
+  </div>
     <div class="topnav">
-        
-        <div id="myLinks">
-        <a href="./WebAppDisMk1.html" class="active">Map</a>
-        
-          <a href="#about" class="active">My Account</a>
-        </div>
-        
+      <div id="myLinks">
+        <a href="./WebAppDisMk1.html" class="active">Map</a>       
+        <a href="#about" class="active">My Account</a>
       </div>
+    </div>
 
 <div id="map"></div>
 
 <script>
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiaWRsZWdhbWVyIiwiYSI6ImNsNnc0MTNpaDA0dnUzY28xM2NpbWo5NGYifQ.2znpvwwQuZbRG9-uY5Nvhg';
-const map = new mapboxgl.Map({
-container: 'map', 
-style: 'mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk',
-zoom: 7,
-center: [0, 52],
-projection: 'globe'});
- 
-map.on('load', () => {
-
-map.setFog({});
-});
-
-map.addControl(
-new mapboxgl.GeolocateControl({
-positionOptions: {
-enableHighAccuracy: true
-},
-// When active the map will receive updates to the device's location as it changes.
-trackUserLocation: true,
-// Draw an arrow next to the location dot to indicate which direction the device is heading.
-showUserHeading: true
-})
-);
+window.onload = function(){
+  initMap();
+  document.getElementById("myLinks").style.display = "none";
+};
 
 
 </script>
