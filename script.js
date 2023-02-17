@@ -1,55 +1,73 @@
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
+
+
+let socket;
+
+function test(){
+  const http = new XMLHttpRequest();
+const url = 'http://localhost:5555/';
+const username = 'user';
+const password = 'pass';
+const credentials = btoa(username + ':' + password);
+
+http.open("GET", url, true);
+http.setRequestHeader("Authorization", "Basic " + credentials);
+http.send();
+
+http.onreadystatechange = function() {
+    if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
+        console.log(http.responseText);
+    } else if (http.readyState === XMLHttpRequest.DONE) {
+        console.log('Request failed. Status code: ' + http.status);
     }
+};
+}
+
+function test2(){
+  var socket = new WebSocket("ws://localhost/socket");
+
+socket.onopen = function (event) {
+  console.log("WebSocket is open now.");
+};
+
+socket.onmessage = function (event) {
+  console.log("Received data: " + event.data);
+};
+
+socket.onerror = function (error) {
+  console.error("WebSocket error: ", error);
+};
+
+socket.onclose = function (event) {
+  console.log("WebSocket closed with code: " + event.code);
+};
+
+}
+
+function getServerConnection() {
+  let message = { _class: "Hello" };
+
+  const socket = new WebSocket("ws://localhost:8080");
+
+  socket.onopen = function(event) {
+    console.log("WebSocket is open now.");
+  };
+
+  socket.onmessage = function(event) {
+    console.log("Received message:", event.data);
+  };
+
+  socket.onclose = function(event) {
+    console.log("WebSocket is closed now.");
+  };
+  console.log(socket.readyState)
+  console.log("after onopen");
+}
+
+function sendTestWebSocketMessage(){
+  if(socket){
+    socket.send(`${new Date()}`);
+  }else{
+    alert("no websocket");
   }
+}
 
-  function initMap(){
-    
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaWRsZWdhbWVyIiwiYSI6ImNsNnc0MTNpaDA0dnUzY28xM2NpbWo5NGYifQ.2znpvwwQuZbRG9-uY5Nvhg';
-    const map = new mapboxgl.Map({
-      container: 'map', 
-      style: 'mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk',
-      minZoom:10,
-      center: [0, 0],
-      projection: 'globe'
-    });
-
-    var geolocate = new mapboxgl.GeolocateControl({
-      positionOptions: {
-      enableHighAccuracy: true},
-      trackUserLocation: true,
-      showUserHeading: true
-    });
-
-    map.on('click', (e) => {// gets current mouse pointer co ordinates for testing purposes
-      console.log(e.lngLat.wrap());
-    });
-
-    map.addControl(geolocate);
-    mapBounds = [[0,0],
-                [0.0]
-    ];
-
-    try{
-        geolocate.on('geolocate', function(e) {
-        var lon = e.coords.longitude;
-        var lat = e.coords.latitude;
-        var position = [lon, lat];
-        mapBounds = [[(lon-0.0816020798784502) , (lat-0.036346035512274)],[(lon +0.0754066900138359), (lat + 0.039394074799906)]];
-        map.setMaxBounds(mapBounds);
-    });
-
-
-    }catch(e){
-      console.log(e);
-    }
-    
-    map.on('load', () => {
-    map.setFog({});
-    });
-
-  }

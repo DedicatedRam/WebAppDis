@@ -8,7 +8,7 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+<script src="mapScript.js"></script>
 <body>
 
   <div class="collapseBut">
@@ -21,7 +21,29 @@
       <div id="myLinks">
         <a href="./WebAppDisMk1.html" class="active">Map</a>       
         <a href="#about" class="active">My Account</a>
+        <a href="#" class="active" onclick="openForm()">Open Form</a>
       </div>
+    </div>
+
+    <div class="form-popup" id="myForm">
+      <form  class="form-container">
+        <h1>Input Data Point</h1>
+    
+        <label for="name"><b>Name</b></label>
+        <input id="userInpTitle" type="text" placeholder="Insert a short title of what this object is" name="name" required>
+    
+        <label for="psw"><b>Short Description</b></label>
+        <input id="userInpDesc" type="text" placeholder="Enter short description of event" name="desc" required>
+
+        <button type="button" class="btn" onclick="coOrdListener()">Click here to enter co-ordinate clicker mode. Click again to confirm.</button>
+        <label id="latLabel" for="latLabel">Latitude: </label>
+        <br>
+        <label id="longLabel" for="longLabel">Longitude: </label>
+        <br>
+
+        <button type="button" onclick="submitUserInputDataPoint()" class="btn">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
     </div>
 
 <div id="map"></div>
