@@ -6,6 +6,7 @@
         "properties": {
             "name": "Cutlery Works",
             "description": "A street food venue with a variety of global cuisines.",
+            "type": "1",
             "timeCreated": 1676647678299
         },
         "geometry": {
@@ -21,6 +22,7 @@
         "properties": {
             "name": "Best Burrito In Sheffield",
             "description": "the best burrito place in sheffield, has won many awards.",
+            "type": "1",
             "timeCreated": 1676667537235
         },
         "geometry": {
