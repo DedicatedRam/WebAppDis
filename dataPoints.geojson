@@ -6,6 +6,10 @@
         "properties": {
             "name": "Cutlery Works",
             "description": "A street food venue with a variety of global cuisines.",
+<<<<<<< HEAD
+=======
+            "type": "1",
+>>>>>>> f38e7f1ba23ea086b398ebc217c3f8b5e2fac535
             "timeCreated": 1676647678299
         },
         "geometry": {
@@ -15,6 +19,7 @@
                 53.392972738215775
             ]
         }
+<<<<<<< HEAD
     },
     {
         "type": "Feature",
@@ -33,3 +38,40 @@
     }
 ]
 }
+=======
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "Best Burrito In Sheffield",
+            "description": "the best burrito place in sheffield, has won many awards.",
+            "type": "1",
+            "timeCreated": 1676667537235
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -1.4688229568619136,
+                53.37654342555504
+            ]
+        }
+    },
+     {
+    "type": "Feature",
+    "properties": {
+        "name": "Car crash",
+        "description": "crash blocking up Eyre Street northbound",
+        "timeCreated": 1678895684612,
+        "type": "2"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -1.4714319338821724,
+            53.37600591196073
+        ]
+    }
+}
+]
+}
+>>>>>>> f38e7f1ba23ea086b398ebc217c3f8b5e2fac535
