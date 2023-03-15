@@ -1,20 +1,35 @@
 {
     "type": "FeatureCollection",
     "features": [
-        {
-    "type": "Feature",
-    "properties": {
-        "name": "Cutlery Works",
-        "description": "A street food venue with a variety of global cuisines.",
-        "timeCreated": 1676647678299
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "Cutlery Works",
+            "description": "A street food venue with a variety of global cuisines.",
+            "timeCreated": 1676647678299
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -1.478182899086022,
+                53.392972738215775
+            ]
+        }
     },
-    "geometry": {
-        "type": "Point",
-        "coordinates": [
-            -1.478182899086022,
-            53.392972738215775
-        ]
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "Best Burrito In Sheffield",
+            "description": "the best burrito place in sheffield, has won many awards.",
+            "timeCreated": 1676667537235
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -1.4688229568619136,
+                53.37654342555504
+            ]
+        }
     }
-}
-    ]
+]
 }

@@ -34,13 +34,28 @@
     
         <label for="psw"><b>Short Description</b></label>
         <input id="userInpDesc" type="text" placeholder="Enter short description of event" name="desc" required>
-
+        
+        <label for="type"><b>Type of Event</b></label>
+        <br>
+        <select name="events" id="eventsType" required>
+          <option selected disabled value="dft">Please select</option>
+          <option value="1">Food Place</option>
+          <option value="2">Traffic Warning</option>
+          <option value="3">Crime</option>
+        </select>
+        <br>
+        <br>
+        <div id="latLongContainer">
+      <div id="latLongButSelect">
         <button type="button" class="btn" onclick="coOrdListener()">Click here to enter co-ordinate clicker mode. Click again to confirm.</button>
+      </div>
+      <div id="latLongLabels">
         <label id="latLabel" for="latLabel">Latitude: </label>
         <br>
         <label id="longLabel" for="longLabel">Longitude: </label>
         <br>
-
+      </div>
+      </div>
         <button type="button" onclick="submitUserInputDataPoint()" class="btn">Submit</button>
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
       </form>

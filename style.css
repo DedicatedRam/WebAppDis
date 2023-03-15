@@ -1,6 +1,68 @@
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0;  width:100%;  z-index: -1; }
 
+#latLongContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#latLongButSelect {
+  width: 50%;
+}
+
+#latLongLabels {
+  text-align: center;
+  width: 50%;
+}
+
+#eventsType{
+  width: 100%;
+  margin-top:2%;
+  margin-bottom: 2%;
+}
+
+#marker {
+  background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  }
+  
+#markerCrime {
+  background-image: url("resources/crime icon.jpg");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9;
+  }
+#markerTraffic {
+  background-image: url("resources/traffic icon.png");
+  background-size: cover;
+  width: 60px;
+  height: 52.7px;
+  cursor: pointer;
+  z-index: 9;
+  }
+
+#markerFood {
+  background-image: url("resources/food icon.jpg");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9;
+  }
+   
+  .mapboxgl-popup {
+  max-width: 200px;
+  }
+
 .open-button {
   background-color: #555;
   color: white;
@@ -84,12 +146,7 @@ body { margin: 0; padding: 0; }
     font-size: 17px;
   }
   
-  .collapseBut{
-    /* overflow: hidden;
-    background-color: #333;
-    position: relative;
-    z-index: 1; */
-  }
+
   .icon {
     background-color: #1973c8;
     color: white;
