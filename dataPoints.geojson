@@ -1,6 +1,4 @@
-{
-    "type": "FeatureCollection",
-    "features": [
+[
     {
         "type": "Feature",
         "properties": {
@@ -32,6 +30,21 @@
                 53.37654342555504
             ]
         }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "Hot dog pop up",
+            "description": "Hot dog and burger pop up van",
+            "timeCreated": 1678894379006,
+            "type": "1"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [
+                -0.11920195678013101,
+                51.50947128830907
+            ]
+        }
     }
 ]
-}
