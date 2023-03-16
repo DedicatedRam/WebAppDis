@@ -2,6 +2,7 @@ var listenForCoOrd = false;
 var selectedLong = "";
 var selectedLat = "";
 var loadedMarkers = null;
+var currentMarkers = [];
 var map;
 function openForm() {
     document.getElementById("myForm").style.display = "block";
@@ -87,6 +88,7 @@ function openForm() {
 
 
 function initMap() {
+  
     mapboxgl.accessToken =
       "pk.eyJ1IjoiaWRsZWdhbWVyIiwiYSI6ImNsNnc0MTNpaDA0dnUzY28xM2NpbWo5NGYifQ.2znpvwwQuZbRG9-uY5Nvhg";
         map = new mapboxgl.Map({
@@ -124,20 +126,20 @@ function initMap() {
       });
     try {
       geolocate.on("geolocate", function (e) {
+        
         var lon = e.coords.longitude;
         var lat = e.coords.latitude;
         mapBounds = [
           [lon - 0.0816020798784502, lat - 0.036346035512274], // SouthWest 
           [lon + 0.0754066900138359, lat + 0.039394074799906], // NorthEast
         ];
-        //console.log(mapBounds);
         map.setMaxBounds(mapBounds);
-
+        if (currentMarkers !=null){
+          for (let index = 0; index < currentMarkers.length; index++) {
+            currentMarkers[index].remove();
+          }
+        }
         populateDataPoints(mapBounds[0][0], mapBounds[0][1], mapBounds[1][0], mapBounds[1][1]);
-        let SWX = mapBounds[0][0];
-        let SWY = mapBounds[0][1];
-        let NEX = mapBounds[1][0];
-        let NEY = mapBounds[1][1];
       });
     } catch (e) {
       console.log(e);
@@ -155,28 +157,20 @@ function initMap() {
   }
 
   function populateDataPoints(SWX, SWY, NEX, NEY){
+    console.log("Markers repopulated");
+    populated = true;
     fetch('https://raw.githubusercontent.com/DedicatedRam/WebAppDis/main/dataPoints.geojson')
         .then(response => response.json())
         .then(data => {
           loadedMarkers = data.features;
           loadedMarkers.forEach(e => {
             var coords = e.geometry.coordinates;
-
-            // console.log("NE " + mapBounds[1]);
-            // console.log("SW " + mapBounds[0]);
-            // console.log(coords);
-            console.log(SWX + " > " + coords[0] + " > " + NEX);
-            // console.log(SWY + " < " + coords[1] + " < " + NEY);
-            console.log((coords[0] > NEX));
-            console.log((coords[0] < SWX));
             if (((coords[0] > SWX) && (coords[0] < NEX)) && ((coords[1] > SWY) && (coords[1] < NEY))){
             // create the popup
             const popup = new mapboxgl.Popup({ offset: 25 }).setText(e.properties.description);
-            console.log("if met");
             let event = e.properties.type;
             // create DOM element for the marker
             const el = document.createElement('div');
-            console.log(event);
             if (event =="1"){
               el.id = "markerFood";
             }
@@ -188,10 +182,9 @@ function initMap() {
             }
     
             // create the marker
-            new mapboxgl.Marker(el)
-            .setLngLat(coords)
-            .setPopup(popup) // sets a popup on this marker
+            let tempMarker = new mapboxgl.Marker(el).setLngLat(coords).setPopup(popup) // sets a popup on this marker
             .addTo(map);
+            currentMarkers.push(tempMarker);
           }
 
         });
