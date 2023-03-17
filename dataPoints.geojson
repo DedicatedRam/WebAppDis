@@ -64,6 +64,22 @@
             51.502330207615444
         ]
     }
+},
+ {
+    "type": "Feature",
+    "properties": {
+        "name": "Traffic backed up all the way down the mall",
+        "description": "Dont even try to go down there",
+        "timeCreated": 1679062976609,
+        "type": "2"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -0.13670606405679564,
+            51.50340678470516
+        ]
+    }
 }
 ]
 }
