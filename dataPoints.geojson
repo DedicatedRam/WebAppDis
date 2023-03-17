@@ -48,6 +48,22 @@
             53.37600591196073
         ]
     }
+},
+{
+    "type": "Feature",
+    "properties": {
+        "name": "Street food burger van",
+        "description": "Very good prices for london",
+        "timeCreated": 1679059680440,
+        "type": "1"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -0.12601582753941898,
+            51.502330207615444
+        ]
+    }
 }
 ]
 }
