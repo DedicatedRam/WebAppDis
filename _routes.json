@@ -1,5 +1,5 @@
 {
     "version": 1,
-    "include": ["/data/*"],
-    "exclude": ["/build/*"]
+    "include": ["/*"],
+    "exclude": ["/index.html"]
  }
