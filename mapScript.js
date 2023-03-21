@@ -4,12 +4,21 @@ var selectedLat = "";
 var loadedMarkers = null;
 var currentMarkers = [];
 var map;
+var dayDataPointLimiter = false;
 function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
   }
+  function devToolsOpen() {
+    document.getElementById("devForm").style.display = "block";
+  }
+  function devToolsClose() {
+    document.getElementById("devForm").style.display = "none";
+  }
+
+
 
   function submitUserInputDataPoint(){
     var title = document.getElementById("userInpTitle").value;
@@ -36,7 +45,11 @@ function openForm() {
           console.log(loadedMarkers);
           console.log(geojson);
           // this is where it should add it to the map
-          var popup = new mapboxgl.Popup({ offset: 25 }).setText(desc);
+          var popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<b>' + title+ '</b>' +
+          '<br>' + 
+          desc +
+          '<br>' +
+          "Posted now");
           // create DOM element for the marker
           var el = document.createElement('div');
           if(type == "1"){
@@ -133,6 +146,7 @@ function initMap() {
           [lon - 0.0816020798784502, lat - 0.036346035512274], // SouthWest 
           [lon + 0.0754066900138359, lat + 0.039394074799906], // NorthEast
         ];
+        console.log("Map bounds: " + mapBounds);
         map.setMaxBounds(mapBounds);
         if (currentMarkers !=null){
           for (let index = 0; index < currentMarkers.length; index++) {
@@ -163,11 +177,22 @@ function initMap() {
         .then(response => response.json())
         .then(data => {
           loadedMarkers = data.features;
+          console.log(loadedMarkers);
           loadedMarkers.forEach(e => {
+            var elapsedMinutes = Math.round((Date.now() - e.properties.timeCreated)/(1000*60));
+            var elapsedHours = elapsedMinutes/60;
+            var hoursWhole = Math.floor(elapsedHours);
+            var minDif = elapsedMinutes - (hoursWhole *60);
+            
             var coords = e.geometry.coordinates;
             if (((coords[0] > SWX) && (coords[0] < NEX)) && ((coords[1] > SWY) && (coords[1] < NEY))){
             // create the popup
-            const popup = new mapboxgl.Popup({ offset: 25 }).setText(e.properties.description);
+            const popup = new mapboxgl.Popup({ offset: 25 })
+            .setHTML('<b>' + e.properties.name+ '</b>' +
+             '<br>' + 
+             e.properties.description +
+             '<br>' +
+             hoursWhole + " hours and " + minDif + " minutes ago");
             let event = e.properties.type;
             // create DOM element for the marker
             const el = document.createElement('div');
@@ -185,6 +210,7 @@ function initMap() {
             let tempMarker = new mapboxgl.Marker(el).setLngLat(coords).setPopup(popup) // sets a popup on this marker
             .addTo(map);
             currentMarkers.push(tempMarker);
+          
           }
 
         });

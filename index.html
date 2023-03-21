@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Can</title>
+</head>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="mapScript.js"></script>
+<body>
+
+  <div class="collapseBut">
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        Collapse
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+    <div class="topnav">
+      <div id="myLinks">     
+        <a href="#about" class="active" onclick="devToolsOpen()">Dev Tools</a>
+        <a href="#" class="active" onclick="openForm()">Open Form</a>
+      </div>
+    </div>
+
+    <div class="form-popup" id="devForm">
+      <form  class="form-container">
+        <h1>Developer Tools</h1>
+    
+        <label>Show points within 24Hrs</label>
+        <button type="button" class="btn" onclick="show24HrPoints()">24Hr</button>
+        <button type="button" class="btn cancel" onclick="devToolsClose()">Close</button>
+      </form>
+    </div>
+
+    <div class="form-popup" id="myForm">
+      <form  class="form-container">
+        <h1>Input Data Point</h1>
+    
+        <label for="name"><b>Name</b></label>
+        <input id="userInpTitle" type="text" placeholder="Insert a short title of what this object is" name="name" required>
+    
+        <label for="psw"><b>Short Description</b></label>
+        <input id="userInpDesc" type="text" placeholder="Enter short description of event" name="desc" required>
+        
+        <label for="type"><b>Type of Event</b></label>
+        <br>
+        <select name="events" id="eventsType" required>
+          <option selected disabled value="dft">Please select</option>
+          <option value="1">Food Place</option>
+          <option value="2">Traffic Warning</option>
+          <option value="3">Crime</option>
+        </select>
+        <br>
+        <br>
+        <div id="latLongContainer">
+      <div id="latLongButSelect">
+        <button type="button" class="btn" onclick="coOrdListener()">Click here to enter co-ordinate clicker mode. Click again to confirm.</button>
+      </div>
+      <div id="latLongLabels">
+        <label id="latLabel" for="latLabel">Latitude: </label>
+        <br>
+        <label id="longLabel" for="longLabel">Longitude: </label>
+        <br>
+      </div>
+      </div>
+        <button type="button" onclick="submitUserInputDataPoint()" class="btn">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+
+<div id="map"></div>
+
+<script>
+
+window.onload = function(){
+  initMap();
+  document.getElementById("myLinks").style.display = "none";
+};
+
+
+</script>
+
+</div>
+ 
+</body>
+</html>
