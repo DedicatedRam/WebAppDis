@@ -1,0 +1,4 @@
+kv_namespaces = [
+  { binding = "dataPoints", id = "fecfa0f537854de1b0df2d7ca220aef3" },
+  { binding = "users", id = "a935c9fa47084c56a85fa001b5808dea"}
+]
