@@ -4,6 +4,7 @@ export async function onRequest(context) {
     let kList = await context.env.dataPoints.list().keys;
     let keyStr = kList+"";
     //console.log(keyStr);
-    const value = await context.env.dataPoints.get("4").properties;
+    const value = await context.env.dataPoints.get("4");
+    console.log(value);
     return new Response(JSON.stringify(value));
 }
