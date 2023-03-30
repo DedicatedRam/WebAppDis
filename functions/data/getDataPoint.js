@@ -1,5 +1,5 @@
 export async function onRequest(context){
-const { getNamespace } = require('@cloudflare/kv-namespace');
+const { getNamespace } = require('@cloudflare/dataPoints');
 const myKVNamespace = getNamespace('dataPoints');
 
 const value = await myKVNamespace.get('1');
