@@ -18,6 +18,12 @@ function openForm() {
     document.getElementById("devForm").style.display = "none";
   }
 
+  async function onRequest(context) {
+    let kList = await context.env.dataPoints.list();
+    console.log("FFFFFF");
+    console.log(kList);
+    // return new Response(JSON.stringify(kList));
+  }
 
 
   function submitUserInputDataPoint(){
@@ -101,7 +107,7 @@ function openForm() {
 
 
 function initMap() {
-  
+  onRequest();
     mapboxgl.accessToken =
       "pk.eyJ1IjoiaWRsZWdhbWVyIiwiYSI6ImNsNnc0MTNpaDA0dnUzY28xM2NpbWo5NGYifQ.2znpvwwQuZbRG9-uY5Nvhg";
         map = new mapboxgl.Map({
