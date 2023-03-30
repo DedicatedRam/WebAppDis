@@ -6,5 +6,5 @@ export async function onRequest(context) {
     //console.log(keyStr);
     const value = await context.env.dataPoints.get("4");
     //console.log(value);
-    return new Response(JSON.stringify(kListr));
+    return new Response(JSON.stringify(kList));
 }
