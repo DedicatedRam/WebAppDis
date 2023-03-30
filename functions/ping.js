@@ -1,5 +1,6 @@
 export async function onRequest(context) {
-    await context.env.dataPoints.put(6, Date.now());
-    let keyStr = Array.from(context.env.dataPoints.list().keys).join(",");
+    // await context.env.dataPoints.put(6, Date.now());
+    let kList = await context.env.dataPoints.list().keys;
+    let keyStr = kList+"";
     return new Response(`keys: ${keyStr}`);
 }
