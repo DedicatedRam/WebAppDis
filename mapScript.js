@@ -101,7 +101,6 @@ function openForm() {
 
 
 function initMap() {
-  onRequest();
     mapboxgl.accessToken =
       "pk.eyJ1IjoiaWRsZWdhbWVyIiwiYSI6ImNsNnc0MTNpaDA0dnUzY28xM2NpbWo5NGYifQ.2znpvwwQuZbRG9-uY5Nvhg";
         map = new mapboxgl.Map({
