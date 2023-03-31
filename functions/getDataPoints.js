@@ -1,5 +1,5 @@
 export async function onRequest(context) {
-    let kList = await context.env.dataPoints.list();
+    let kList = await context.env.dataPoints.list().keys;
     let jsnList = [];
     //let test = await JSON.parse(context.env.dataPoints.get(1));
     for(key of kList){
