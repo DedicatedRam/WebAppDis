@@ -15,7 +15,7 @@ export async function onRequest(context) {
 }
 
 async function readRequestBody(request) {
-
-    return JSON.stringify(await request.json());
+  console.log(await request.json());
+  return JSON.stringify(await request.json());
 
 }
