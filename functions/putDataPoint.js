@@ -2,7 +2,7 @@ export async function onRequest(context) {
   let kList = (await context.env.dataPoints.list()).keys;
   let numberInList = kList.length();
 
-  console.log(context);
+  console.log(await context);
   
   const corsHeaders = {
       "Access-Control-Allow-Origin": "*",
