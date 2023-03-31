@@ -41,6 +41,23 @@ function openForm() {
               "coordinates": [selectedLong, selectedLat]
             }
           };
+
+
+          fetch("https://cas-4d0.pages.dev/putDataPoint", {
+            method: "POST", // or 'PUT'
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(geojson),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+
           loadedMarkers.push(geojson);
           console.log(loadedMarkers);
           console.log(geojson);
@@ -180,9 +197,7 @@ function initMap() {
     })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           loadedMarkers = data;
-          console.log(loadedMarkers);
           loadedMarkers.forEach(e => {
             var elapsedMinutes = Math.round((Date.now() - e.properties.timeCreated)/(1000*60));
             var elapsedHours = elapsedMinutes/60;
