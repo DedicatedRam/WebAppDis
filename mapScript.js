@@ -49,7 +49,9 @@ function openForm() {
               "Content-Type": "application/json",
             },
             body: geojson,
+            
           })
+          
             .then((response) => response.json())
             .then((data) => {
               console.log("Success:", data);
@@ -57,34 +59,34 @@ function openForm() {
             .catch((error) => {
               console.error("Error:", error);
             });
-
+          
           loadedMarkers.push(geojson);
           console.log(loadedMarkers);
           console.log(geojson);
           // this is where it should add it to the map
-          var popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<b>' + title+ '</b>' +
-          '<br>' + 
-          desc +
-          '<br>' +
-          "Posted now");
-          // create DOM element for the marker
-          var el = document.createElement('div');
-          if(type == "1"){
-            el.id = "markerFood";
-          }
-          if(type == "2"){
-            el.id = "markerTraffic";
-          }
-          if(type == "3"){
-            el.id = 'markerCrime';
-          }
-          var coords = [selectedLong, selectedLat];
-          // create the marker
+          // var popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<b>' + title+ '</b>' +
+          // '<br>' + 
+          // desc +
+          // '<br>' +
+          // "Posted now");
+          // // create DOM element for the marker
+          // var el = document.createElement('div');
+          // if(type == "1"){
+          //   el.id = "markerFood";
+          // }
+          // if(type == "2"){
+          //   el.id = "markerTraffic";
+          // }
+          // if(type == "3"){
+          //   el.id = 'markerCrime';
+          // }
+          // var coords = [selectedLong, selectedLat];
+          // // create the marker
           
-          new mapboxgl.Marker(el)
-            .setLngLat(coords)
-            .setPopup(popup)
-            .addTo(map);
+          // new mapboxgl.Marker(el)
+          //   .setLngLat(coords)
+          //   .setPopup(popup)
+          //   .addTo(map);
             //saveGeoJsonToFile(geojson);
             // The object is created here and is going to be saved to a local file for the time being.
     }
