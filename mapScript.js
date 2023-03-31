@@ -48,7 +48,7 @@ function openForm() {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(geojson),
+            body: geojson,
           })
             .then((response) => response.json())
             .then((data) => {
