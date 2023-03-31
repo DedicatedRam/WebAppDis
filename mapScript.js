@@ -180,6 +180,7 @@ function initMap() {
     })
         .then(response => response.json())
         .then(data => {
+          console.log(data);
           loadedMarkers = data.features;
           console.log(loadedMarkers);
           loadedMarkers.forEach(e => {
