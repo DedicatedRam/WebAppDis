@@ -180,8 +180,8 @@ function initMap() {
     })
         .then(response => response.json())
         .then(data => {
-          console.log(JSON.parse(data));
-          loadedMarkers = data.features;
+          console.log(data);
+          loadedMarkers = data;
           console.log(loadedMarkers);
           loadedMarkers.forEach(e => {
             var elapsedMinutes = Math.round((Date.now() - e.properties.timeCreated)/(1000*60));
