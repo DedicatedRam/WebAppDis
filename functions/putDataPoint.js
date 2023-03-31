@@ -1,6 +1,6 @@
 export async function onRequest(context) {
   let kList = (await context.env.dataPoints.list()).keys;
-  let numberInList = kList.length();
+  let numberInList = kList.length;
 
   console.log(await context);
   
