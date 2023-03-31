@@ -15,7 +15,7 @@ export async function onRequest(context) {
 }
 
 async function readRequestBody(request) {
-  const contentType = request.headers.get("content-type");
+  const contentType = request.headers.get("Content-Type");
   if (contentType.includes("application/json")) {
     return JSON.stringify(await request.json());
   } else if (contentType.includes("application/text")) {
