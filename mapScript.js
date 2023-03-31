@@ -19,16 +19,6 @@ function openForm() {
   }
 
 
-  addEventListener("fetch", (event) => {
-    event.respondWith(onRequest(event.request));
-  });
-
-  async function onRequest(context) {
-    let kList = await context.env.dataPoints.list();
-    console.log("FFFFFF");
-    console.log(kList);
-  }
-
 
   function submitUserInputDataPoint(){
     var title = document.getElementById("userInpTitle").value;
