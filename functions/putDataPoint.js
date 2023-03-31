@@ -11,7 +11,7 @@ export async function onRequest(context) {
     "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
     "Access-Control-Max-Age": "86400",
   };
-  return new Response(JSON.stringify(body), { headers: corsHeaders });
+  return new Response(JSON.stringify(context.request), { headers: corsHeaders });
 }
 
 async function readRequestBody(request) {
