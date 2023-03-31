@@ -3,9 +3,9 @@ export async function onRequest(context) {
     let jsnList = [];
     let test = await context.env.dataPoints.get(1);
     for (let index = 0; index < kList.length; index++) {
-        const element = await context.env.dataPoints.get(kList[index]);
+        const element = await context.env.dataPoints.get(kList[index].name);
         jsnList.push(element);
     }
     console.log(JSON.stringify(jsnList));
-    return new Response(JSON.stringify(kList));
+    return new Response(JSON.stringify(test.name));
 }
