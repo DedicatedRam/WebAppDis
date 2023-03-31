@@ -7,5 +7,5 @@ export async function onRequest(context) {
         jsnList.push(element);
     }
     console.log(JSON.stringify(jsnList));
-    return new Response(JSON.stringify(test.name));
+    return new Response(JSON.stringify(kList));
 }
