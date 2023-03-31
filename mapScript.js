@@ -183,7 +183,7 @@ function initMap() {
   function populateDataPoints(SWX, SWY, NEX, NEY){
     console.log("Markers repopulated");
     populated = true;
-    fetch('https://raw.githubusercontent.com/DedicatedRam/WebAppDis/main/dataPoints.geojson')
+    fetch('https://cas-4d0.pages.dev/getDataPoints')
         .then(response => response.json())
         .then(data => {
           loadedMarkers = data.features;
