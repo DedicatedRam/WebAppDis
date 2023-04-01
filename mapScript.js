@@ -46,10 +46,10 @@ function openForm() {
           fetch("https://cas-4d0.pages.dev/putDataPoint", {
             method: "POST", // or 'PUT'
             headers: {
-              "Content-Type": "application/json",
               "Access-Control-Allow-Origin": "*",
               "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
               "Access-Control-Max-Age": "86400",
+              "Content-Type": "application/json",
             },
             body: geojson,
             
