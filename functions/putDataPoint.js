@@ -2,8 +2,8 @@ export async function onRequest(context) {
   let kList = (await context.env.dataPoints.list()).keys;
   let numberInList = kList.length;
 
-  let body = await readRequestBody(await context.request);
-
+  //let body = await readRequestBody(await context.request);
+  //let res = 
   console.log(await context);
   await context.env.dataPoints.put(numberInList, body);
   const corsHeaders = {

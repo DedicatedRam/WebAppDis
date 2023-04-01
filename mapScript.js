@@ -51,7 +51,7 @@ function openForm() {
               "Access-Control-Max-Age": "86400",
               "Content-Type": "application/json",
             },
-            body: geojson,
+            body: JSON.stringify(geojson),
             
           })
           
