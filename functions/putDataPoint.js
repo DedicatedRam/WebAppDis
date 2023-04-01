@@ -3,15 +3,15 @@ export async function onRequest(context) {
   let numberInList = kList.length;
 
   //let body = await readRequestBody(await context.request);
-  //let res = 
   console.log(await context);
-  await context.env.dataPoints.put(numberInList, body);
+  let res = await context.env.dataPoints.put(numberInList, body);
   const corsHeaders = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
     "Access-Control-Max-Age": "86400",
   };
-  return new Response(JSON.stringify(context.env), { headers: corsHeaders });
+  return new Response((res), { headers: corsHeaders });
+  //return new Response(JSON.stringify(context.env), { headers: corsHeaders });
 }
 
 async function readRequestBody(request) {
