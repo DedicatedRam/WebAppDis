@@ -121,7 +121,7 @@ function openForm() {
 async function postJSON(data) {
   console.log("Data: " + data);
   try {
-    await fetch("https://cas-4d0.pages.dev/putDataPoint", {
+    const response = await fetch("https://cas-4d0.pages.dev/putDataPoint", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -135,6 +135,7 @@ async function postJSON(data) {
     console.error("Error:", error);
   }
 }
+
 
 
   function errorHandler(error) {
