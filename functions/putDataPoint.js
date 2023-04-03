@@ -11,7 +11,7 @@ export async function onRequest(context) {
     'Content-type': 'application/json',
   }
   await context.env.dataPoints.put(numberInList, body);
-  return new  Response(body, { status: 200, headers: headers });
+  return new  Response(res, { status: 200, headers: headers });
   //return new Response(JSON.stringify(context.env), { headers: corsHeaders });
 }
 
