@@ -3,8 +3,8 @@ export async function onRequest(context) {
   let numberInList = kList.length;
 
   console.log(await context);
-  //let res = await context.env.dataPoints.put(numberInList, body);
-  const body = await context.text()
+  let res = await context.env.dataPoints.put(numberInList, body);
+  console.log(res);
   const headers = {
     Allow: 'OPTIONS, GET, HEAD, POST',
     'Access-Control-Allow-Origin': '*',
