@@ -124,8 +124,8 @@ async function postJSON(data) {
     const response = await fetch("https://cas-4d0.pages.dev/putDataPoint", {
       method: "POST", // or 'PUT'
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+        //"Access-Control-Allow-Origin": "*",
+        //"Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
         "Access-Control-Max-Age": "86400",
         "Content-Type": "application/json",
       },
