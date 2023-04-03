@@ -125,9 +125,9 @@ async function postJSON(data) {
       method: "POST", // or 'PUT'
       headers: {
         //"Access-Control-Allow-Origin": "*",
-        //"Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
-        "Access-Control-Max-Age": "86400",
-        "Content-Type": "application/json",
+        // //"Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+        // "Access-Control-Max-Age": "86400",
+        // "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
