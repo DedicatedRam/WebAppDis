@@ -42,7 +42,7 @@ function openForm() {
             }
           };
 
-          
+          console.log(geojson);
           postJSON(geojson);
 
           // fetch("https://cas-4d0.pages.dev/putDataPoint", {
@@ -67,7 +67,7 @@ function openForm() {
           
           loadedMarkers.push(geojson);
           console.log(loadedMarkers);
-          console.log(geojson);
+          //console.log(geojson);
           // this is where it should add it to the map
           // var popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<b>' + title+ '</b>' +
           // '<br>' + 
