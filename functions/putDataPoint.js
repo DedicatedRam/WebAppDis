@@ -4,7 +4,7 @@ export async function onRequest(context) {
 
   //let body = await readRequestBody(await context.request);
   console.log(await context);
-  //let res = await context.env.dataPoints.put(numberInList, body);
+  let res = await context.env.dataPoints.put(numberInList, body);
   
   const corsHeaders = {
     "Access-Control-Allow-Origin": "*",
