@@ -43,7 +43,7 @@ function openForm() {
           };
 
           
-          postJSON(JSON.parse(geojson));
+          postJSON(JSON.stringify(geojson));
 
           // fetch("https://cas-4d0.pages.dev/putDataPoint", {
           //   method: "POST", // or 'PUT'
