@@ -128,7 +128,7 @@ async function postJSON(data) {
         "Access-Control-Max-Age": "86400",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify("test"),
     });
 
     const result = await response.json();
