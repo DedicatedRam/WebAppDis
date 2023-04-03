@@ -119,7 +119,7 @@ function openForm() {
 
 
 async function postJSON(data) {
-  console.log(data);
+  console.log("Data: " + data);
   try {
     const response = await fetch("https://cas-4d0.pages.dev/putDataPoint", {
       method: "POST", // or 'PUT'
