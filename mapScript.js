@@ -42,26 +42,28 @@ function openForm() {
             }
           };
 
-
-          fetch("https://cas-4d0.pages.dev/putDataPoint", {
-            method: "POST", // or 'PUT'
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
-              "Access-Control-Max-Age": "86400",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(geojson),
-            
-          })
           
-            .then((response) => response.json())
-            .then((data) => {
-              console.log("Success:", data);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
+          postJSON(geojson);
+
+          // fetch("https://cas-4d0.pages.dev/putDataPoint", {
+          //   method: "POST", // or 'PUT'
+          //   headers: {
+          //     "Access-Control-Allow-Origin": "*",
+          //     "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+          //     "Access-Control-Max-Age": "86400",
+          //     "Content-Type": "application/json",
+          //   },
+          //   body: JSON.stringify(geojson),
+            
+          // })
+          
+          //   .then((response) => response.json())
+          //   .then((data) => {
+          //     console.log("Success:", data);
+          //   })
+          //   .catch((error) => {
+          //     console.error("Error:", error);
+          //   });
           
           loadedMarkers.push(geojson);
           console.log(loadedMarkers);
@@ -113,6 +115,27 @@ function openForm() {
         }, errorHandler);
   }, errorHandler);
 }, errorHandler);
+}
+
+
+async function postJSON(data) {
+  try {
+    const response = await fetch("https://cas-4d0.pages.dev/putDataPoint", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+        "Access-Control-Max-Age": "86400",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(geojson),
+    });
+
+    const result = await response.json();
+    console.log("Success:", result);
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 
