@@ -42,7 +42,7 @@ function openForm() {
             }
           };
 
-          console.log(geojson);
+          
           postJSON(geojson);
 
           // fetch("https://cas-4d0.pages.dev/putDataPoint", {
@@ -120,6 +120,7 @@ function openForm() {
 
 async function postJSON(data) {
   try {
+    console.log(data);
     const response = await fetch("https://cas-4d0.pages.dev/putDataPoint", {
       method: "POST", // or 'PUT'
       headers: {
@@ -128,7 +129,7 @@ async function postJSON(data) {
         "Access-Control-Max-Age": "86400",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify("test"),
+      body: JSON.stringify(data),
     });
 
     const result = await response.json();
