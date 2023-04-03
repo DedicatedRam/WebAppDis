@@ -2,7 +2,6 @@ export async function onRequest(context) {
   let kList = (await context.env.dataPoints.list()).keys;
   let numberInList = kList.length;
 
-  //let body = await readRequestBody(await context.request);
   console.log(await context);
   let res = await context.env.dataPoints.put(numberInList, body);
   
@@ -11,7 +10,7 @@ export async function onRequest(context) {
     "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
     "Access-Control-Max-Age": "86400",
   };
-  return new Response((body), { headers: corsHeaders });
+  return new Response((res), { headers: corsHeaders });
   //return new Response(JSON.stringify(context.env), { headers: corsHeaders });
 }
 
