@@ -9,7 +9,7 @@ export async function onRequest(context) {
   console.log(res);
   
   const headers = {
-    Allow: 'OPTIONS, GET, HEAD, POST',
+    Allow: 'POST',
     'Access-Control-Allow-Origin': 'https://3dee04d9.cas-4d0.pages.dev',
     'Content-type': 'application/json',
   }
