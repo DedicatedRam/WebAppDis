@@ -193,13 +193,12 @@ body { margin: 0; padding: 0; }
      z-index: 9;
 
     position: fixed;
-    bottom: -600px; /* hide the form off screen */
+    bottom: -1000px; /* hide the form off screen */
     left: 0;
     right: 0;
     margin: 0 auto;
-    width: 80%;
-    max-width: 600px;
     background-color: #fff;
+    padding: 20px;
     box-sizing: border-box;
     animation-duration: 0.5s;
     animation-timing-function: ease;
