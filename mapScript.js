@@ -67,6 +67,7 @@ async function postJSON(data) {
       document.getElementById("userInpTitle").value = "";
       document.getElementById("userInpDesc").value = "";
       document.getElementById("eventsType").value = "dft";
+      console.log("suc hit");
     }
     else{
       new Error(response);
