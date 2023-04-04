@@ -204,8 +204,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
         var minDif = elapsedMinutes - hoursWhole * 60;
         var coords = e.geometry.coordinates;
 
-        var skipCondition = (dayDataPointLimiter == true) && (hoursWhole => 24);
-          console.log(hoursWhole);
+        var skipCondition = (dayDataPointLimiter == true) && (hoursWhole >= 24);
         if (!skipCondition) {
           if (
             coords[0] > SWX &&
