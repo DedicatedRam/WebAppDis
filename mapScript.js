@@ -5,6 +5,7 @@ var loadedMarkers = null;
 var currentMarkers = [];
 var map;
 var dayDataPointLimiter = false;
+var mapBounds = [[0, 0], [0.0]];
 function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
@@ -62,6 +63,7 @@ async function postJSON(data) {
     const result = await response.json();
     if(response.status == 201){
       console.log("Success:", result);
+      populateDataPoints(mapBounds[0][0], mapBounds[0][1], mapBounds[1][0], mapBounds[1][1]);
     }
     else{
       new Error(response);
@@ -102,7 +104,7 @@ function initMap() {
 
     
     map.addControl(geolocate);
-    mapBounds = [[0, 0], [0.0]];
+    
   
     map.on("click", (e) => {
         // gets current mouse pointer co ordinates for testing purposes
@@ -127,11 +129,7 @@ function initMap() {
           [lon + 0.0754066900138359, lat + 0.039394074799906], // NorthEast
         ];
         map.setMaxBounds(mapBounds);
-        if (currentMarkers !=null){
-          for (let index = 0; index < currentMarkers.length; index++) {
-            currentMarkers[index].remove();
-          }
-        }
+        
         populateDataPoints(mapBounds[0][0], mapBounds[0][1], mapBounds[1][0], mapBounds[1][1]);
       });
     } catch (e) {
@@ -151,6 +149,11 @@ function initMap() {
 
   function populateDataPoints(SWX, SWY, NEX, NEY){
     populated = true;
+    if (currentMarkers !=null){
+      for (let index = 0; index < currentMarkers.length; index++) {
+        currentMarkers[index].remove();
+      }
+    }
     fetch('https://cas-4d0.pages.dev/getDataPoints', 
     {
       "Access-Control-Allow-Origin": "*",
