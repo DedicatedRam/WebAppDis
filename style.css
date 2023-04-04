@@ -58,7 +58,7 @@ body { margin: 0; padding: 0; }
   cursor: pointer;
   z-index: 9;
   }
-  #markerFood {
+  #markerSocial {
     background-image: url("resources/social icon.jpg");
     background-size: cover;
     width: 50px;
