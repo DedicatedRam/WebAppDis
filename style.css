@@ -212,4 +212,13 @@ body { margin: 0; padding: 0; }
       bottom: 0;
     }
   }
+
+  @keyframes slideDown {
+    from {
+      bottom: 0;
+    }
+    to {
+      bottom: -100%;
+    }
+  }
   

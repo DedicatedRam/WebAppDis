@@ -15,7 +15,7 @@ function showForm() {
 
 function hideForm() {
   var form = document.getElementById("myForm");
-  form.style.animationName = "";
+  form.style.animationName = "slideDown";
   form.style.bottom = "-100%"; // hide the form off screen
 }
 
