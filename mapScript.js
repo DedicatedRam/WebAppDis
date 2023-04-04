@@ -44,77 +44,9 @@ function openForm() {
 
           
           postJSON(JSON.stringify(geojson));
-
-          // fetch("https://cas-4d0.pages.dev/putDataPoint", {
-          //   method: "POST", // or 'PUT'
-          //   headers: {
-          //     "Access-Control-Allow-Origin": "*",
-          //     "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
-          //     "Access-Control-Max-Age": "86400",
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify(geojson),
-            
-          // })
-          
-          //   .then((response) => response.json())
-          //   .then((data) => {
-          //     console.log("Success:", data);
-          //   })
-          //   .catch((error) => {
-          //     console.error("Error:", error);
-          //   });
-          
           loadedMarkers.push(geojson);
-          //console.log(geojson);
-          // this is where it should add it to the map
-          // var popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<b>' + title+ '</b>' +
-          // '<br>' + 
-          // desc +
-          // '<br>' +
-          // "Posted now");
-          // // create DOM element for the marker
-          // var el = document.createElement('div');
-          // if(type == "1"){
-          //   el.id = "markerFood";
-          // }
-          // if(type == "2"){
-          //   el.id = "markerTraffic";
-          // }
-          // if(type == "3"){
-          //   el.id = 'markerCrime';
-          // }
-          // var coords = [selectedLong, selectedLat];
-          // // create the marker
-          
-          // new mapboxgl.Marker(el)
-          //   .setLngLat(coords)
-          //   .setPopup(popup)
-          //   .addTo(map);
-            //saveGeoJsonToFile(geojson);
-            // The object is created here and is going to be saved to a local file for the time being.
     }
   }
-
-  function saveGeoJsonToFile(obj){
-    // Convert the GeoJSON data to a string
-    let data = JSON.stringify(obj);
-
-    // Request access to the file system
-    window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
-
-    window.requestFileSystem(window.TEMPORARY, 1024 * 1024, function(fs) {
-    // Create a new file
-    fs.root.getFile("dataPoints.geojson", {create: true}, function(fileEntry) {
-        // Create a FileWriter object
-        fileEntry.createWriter(function(fileWriter) {
-            // Write the data to the file
-            let blob = new Blob([data], {type: 'application/json'});
-            fileWriter.write(blob);
-        }, errorHandler);
-  }, errorHandler);
-}, errorHandler);
-}
 
 
 async function postJSON(data) {
