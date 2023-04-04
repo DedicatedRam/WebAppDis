@@ -255,6 +255,9 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
             if (event == "4") {
               el.id = "markerSocial";
             }
+            if (event == "5") {
+              el.id = "markerSport";
+            }
 
             // create the marker
             let tempMarker = new mapboxgl.Marker(el)
