@@ -20,7 +20,7 @@ export async function onRequest(context) {
     return new Response(JSON.stringify(res), { status: 200, headers: headers });
   }catch (e) {
     console.log(e)
-    throw new Error(`temp is ` + temp);
+    throw new Error(`temp is ` + body);
   }
 }
 
