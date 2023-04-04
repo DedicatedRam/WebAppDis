@@ -27,6 +27,7 @@ function burgerMenu() {
   }
 }
 
+
 function submitUserInputDataPoint() {
   var title = document.getElementById("userInpTitle").value;
   var desc = document.getElementById("userInpDesc").value;
@@ -166,6 +167,17 @@ function initMap() {
   map.on("load", () => {
     map.setFog({});
   });
+}
+
+function show24HrPoints(){
+  if(dayDataPointLimiter == false){dayDataPointLimiter = true};
+  if(dayDataPointLimiter == true){dayDataPointLimiter = false};
+  populateDataPoints(
+    mapBounds[0][0],
+    mapBounds[0][1],
+    mapBounds[1][0],
+    mapBounds[1][1]
+  );
 }
 
 function populateDataPoints(SWX, SWY, NEX, NEY) {
