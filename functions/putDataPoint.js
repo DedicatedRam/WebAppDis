@@ -14,7 +14,7 @@ export async function onRequest(context) {
     'Content-type': 'application/json',
   }
   
-  return new Response(JSON.stringify(res), { status: 200, headers: headers });
+  return new Response(JSON.stringify(body), { status: 200, headers: headers });
 }
 
 
