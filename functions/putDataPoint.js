@@ -24,8 +24,12 @@ export async function onRequest(context) {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
       }
+
+      var retMsg = {
+        msg : "Success"
+      }
     
-      return new Response(JSON.stringify(res), { status: 201, headers: headers });
+      return new Response(JSON.stringify(retMsg), { status: 201, headers: headers });
     } else {
       // respond with method not allowed
       const headers = {
