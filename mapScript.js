@@ -73,7 +73,7 @@ async function postJSON(data) {
       new Error(response);
       console.log(response);
     }
-    console.log(response);
+    console.log("Res " , response);
     
   } catch (error) {
     console.error("Error:", error);
