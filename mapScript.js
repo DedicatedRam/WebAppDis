@@ -16,7 +16,7 @@ function showForm() {
 function hideForm() {
   var form = document.getElementById("myForm");
   form.style.animationName = "";
-  form.style.bottom = "-300px"; // hide the form off screen
+  form.style.bottom = "-100%"; // hide the form off screen
 }
 
 
