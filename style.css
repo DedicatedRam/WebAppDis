@@ -185,3 +185,31 @@ body { margin: 0; padding: 0; }
     border:black solid 1px;
     border-radius: 15%;
   }
+
+
+  #myForm {
+    position: fixed;
+    bottom: -300px; /* hide the form off screen */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes slideUp {
+    from {
+      bottom: -300px;
+    }
+    to {
+      bottom: 0;
+    }
+  }
+  

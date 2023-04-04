@@ -6,6 +6,21 @@ var currentMarkers = [];
 var map;
 var dayDataPointLimiter = false;
 var mapBounds = [[0, 0], [0.0]];
+
+
+function showForm() {
+  var form = document.getElementById("myForm");
+  form.style.animationName = "slideUp";
+}
+
+function hideForm() {
+  var form = document.getElementById("myForm");
+  form.style.animationName = "";
+  form.style.bottom = "-300px"; // hide the form off screen
+}
+
+
+
 function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
