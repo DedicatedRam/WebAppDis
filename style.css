@@ -206,7 +206,7 @@ body { margin: 0; padding: 0; }
   
   @keyframes slideUp {
     from {
-      bottom: -1000px;
+      bottom: -2000px;
     }
     to {
       bottom: 0;
