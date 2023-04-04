@@ -4,7 +4,7 @@ export async function onRequest(context) {
     if (context.request.method === 'OPTIONS') {
       // respond to preflight request
       const headers = {
-        'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST',
         'Access-Control-Allow-Headers': 'Content-Type',
       }
@@ -21,7 +21,7 @@ export async function onRequest(context) {
       console.log(res);
 
       const headers = {
-        'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
+        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
       }
     
@@ -30,7 +30,7 @@ export async function onRequest(context) {
       // respond with method not allowed
       const headers = {
         'Allow': 'POST',
-        'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
+        'Access-Control-Allow-Origin': '*',
       }
       return new Response(null, { status: 405, headers: headers });
     }
