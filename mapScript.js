@@ -196,6 +196,7 @@ function show24HrPoints(){
 }
 
 function populateDataPoints(SWX, SWY, NEX, NEY) {
+  console.log("populating...");
   populated = true;
   if (currentMarkers != null) {
     for (let index = 0; index < currentMarkers.length; index++) {
