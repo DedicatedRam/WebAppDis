@@ -170,8 +170,8 @@ function initMap() {
 }
 
 function show24HrPoints(){
-  if(dayDataPointLimiter == false){dayDataPointLimiter = true};
-  if(dayDataPointLimiter == true){dayDataPointLimiter = false};
+  if(dayDataPointLimiter == false){dayDataPointLimiter = true}
+  else if(dayDataPointLimiter == true){dayDataPointLimiter = false};
   populateDataPoints(
     mapBounds[0][0],
     mapBounds[0][1],
