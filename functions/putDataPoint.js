@@ -1,24 +1,40 @@
 export async function onRequest(context) {
   let temp=null;
-  try{
-    let kList = (await context.env.dataPoints.list()).keys;
-    let numberInList = kList.length;
-  
-    const body = await context.request.json();
-    temp = await context.request;
-    console.log(body);
-  
-    let res = await context.env.dataPoints.put(numberInList, body);
-    console.log(res);
+  try {
+    if (context.request.method === 'OPTIONS') {
+      // respond to preflight request
+      const headers = {
+        'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      }
+      return new Response(null, { status: 204, headers: headers });
+    } else if (context.request.method === 'POST') {
+      let kList = (await context.env.dataPoints.list()).keys;
+      let numberInList = kList.length;
+
+      const body = await context.request.json();
+      temp = await context.request;
+      console.log(body);
+
+      let res = await context.env.dataPoints.put(numberInList, body);
+      console.log(res);
+
+      const headers = {
+        'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
+        'Content-Type': 'application/json',
+      }
     
-    const headers = {
-      Allow: 'POST',
-      'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
-      'Content-type': 'application/json',
+      return new Response(JSON.stringify(res), { status: 200, headers: headers });
+    } else {
+      // respond with method not allowed
+      const headers = {
+        'Allow': 'POST',
+        'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
+      }
+      return new Response(null, { status: 405, headers: headers });
     }
-    
-    return new Response(JSON.stringify(res), { status: 200, headers: headers });
-  }catch (e) {
+  } catch (e) {
     console.log(e)
     throw new Error(`temp is ` + body);
   }
