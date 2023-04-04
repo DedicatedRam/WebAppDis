@@ -25,7 +25,7 @@ export async function onRequest(context) {
         'Content-Type': 'application/json',
       }
     
-      return new Response(JSON.stringify(res), { status: 200, headers: headers });
+      return new Response(JSON.stringify(res), { status: 201, headers: headers });
     } else {
       // respond with method not allowed
       const headers = {

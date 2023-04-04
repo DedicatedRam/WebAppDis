@@ -66,7 +66,6 @@ function openForm() {
           //   });
           
           loadedMarkers.push(geojson);
-          console.log(loadedMarkers);
           //console.log(geojson);
           // this is where it should add it to the map
           // var popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<b>' + title+ '</b>' +
@@ -119,7 +118,6 @@ function openForm() {
 
 
 async function postJSON(data) {
-  console.log("Data: " , data);
   try {
     const response = await fetch("https://cas-4d0.pages.dev/putDataPoint", {
       method: "POST", // or 'PUT'
@@ -130,7 +128,14 @@ async function postJSON(data) {
     });
 
     const result = await response.json();
-    console.log("Success:", result);
+    if(response.status == 201){
+      console.log("Success:", result);
+    }
+    else{
+      new Error(response);
+      console.log(reponse);
+    }
+    
   } catch (error) {
     console.error("Error:", error);
   }
@@ -189,7 +194,6 @@ function initMap() {
           [lon - 0.0816020798784502, lat - 0.036346035512274], // SouthWest 
           [lon + 0.0754066900138359, lat + 0.039394074799906], // NorthEast
         ];
-        console.log("Map bounds: " + mapBounds);
         map.setMaxBounds(mapBounds);
         if (currentMarkers !=null){
           for (let index = 0; index < currentMarkers.length; index++) {
@@ -214,7 +218,6 @@ function initMap() {
   }
 
   function populateDataPoints(SWX, SWY, NEX, NEY){
-    console.log("Markers repopulated");
     populated = true;
     fetch('https://cas-4d0.pages.dev/getDataPoints', 
     {
