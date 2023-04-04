@@ -10,7 +10,7 @@ export async function onRequest(context) {
   
   const headers = {
     Allow: 'POST',
-    'Access-Control-Allow-Origin': 'https://3dee04d9.cas-4d0.pages.dev',
+    'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
     'Content-type': 'application/json',
   }
   
