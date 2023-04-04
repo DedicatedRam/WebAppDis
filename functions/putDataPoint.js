@@ -1,20 +1,27 @@
 export async function onRequest(context) {
-  let kList = (await context.env.dataPoints.list()).keys;
-  let numberInList = kList.length;
-
-  const body = await context.request.json();
-  console.log(body);
-
-  let res = await context.env.dataPoints.put(numberInList, body);
-  console.log(res);
+  let temp=null;
+  try{
+    let kList = (await context.env.dataPoints.list()).keys;
+    let numberInList = kList.length;
   
-  const headers = {
-    Allow: 'POST',
-    'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
-    'Content-type': 'application/json',
+    const body = await context.request.json();
+    temp = await context.request;
+    console.log(body);
+  
+    let res = await context.env.dataPoints.put(numberInList, body);
+    console.log(res);
+    
+    const headers = {
+      Allow: 'POST',
+      'Access-Control-Allow-Origin': 'https://cas-4d0.pages.dev',
+      'Content-type': 'application/json',
+    }
+    
+    return new Response(JSON.stringify(res), { status: 200, headers: headers });
+  }catch (e) {
+    consonle.log(e)
+    throw new Error(`${!temp?"NULL":JSON.stringify(temp)} || ${JSON.stringify(e)}`);
   }
-  
-  return new Response(JSON.stringify(res), { status: 200, headers: headers });
 }
 
 
