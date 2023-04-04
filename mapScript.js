@@ -64,6 +64,9 @@ async function postJSON(data) {
     if(response.status == 201){
       console.log("Success:", result);
       populateDataPoints(mapBounds[0][0], mapBounds[0][1], mapBounds[1][0], mapBounds[1][1]);
+      document.getElementById("userInpTitle").value = "";
+      document.getElementById("userInpDesc").value = "";
+      document.getElementById("eventsType").value = "dft";
     }
     else{
       new Error(response);
