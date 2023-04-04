@@ -195,6 +195,9 @@ function initMap() {
             if(event == "3"){
               el.id = "markerCrime";
             }
+            if(event == "4"){
+              el.id = "markerSocial";
+            }
     
             // create the marker
             let tempMarker = new mapboxgl.Marker(el).setLngLat(coords).setPopup(popup) // sets a popup on this marker

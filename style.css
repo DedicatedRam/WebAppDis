@@ -58,6 +58,15 @@ body { margin: 0; padding: 0; }
   cursor: pointer;
   z-index: 9;
   }
+  #markerFood {
+    background-image: url("resources/social icon.jpg");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9;
+    }
    
   .mapboxgl-popup {
   max-width: 200px;
