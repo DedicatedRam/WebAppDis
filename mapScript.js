@@ -61,9 +61,7 @@ async function postJSON(data) {
     });
 
     const result = await response.text();
-    console.log(result);
     if(response.status == 201){
-      console.log("Success:", result);
       populateDataPoints(mapBounds[0][0], mapBounds[0][1], mapBounds[1][0], mapBounds[1][1]);
       document.getElementById("userInpTitle").value = "";
       document.getElementById("userInpDesc").value = "";
@@ -74,7 +72,6 @@ async function postJSON(data) {
       new Error(response);
       console.log(response);
     }
-    console.log("Res " , response);
     
   } catch (error) {
     console.error("Error:", error);
