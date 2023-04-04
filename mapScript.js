@@ -66,7 +66,9 @@ async function postJSON(data) {
       document.getElementById("userInpTitle").value = "";
       document.getElementById("userInpDesc").value = "";
       document.getElementById("eventsType").value = "dft";
-      console.log("suc hit");
+      document.getElementById("latLabel").innerHTML = "Latitude: "; 
+      document.getElementById("longLabel").innerHTML = "Longitude: "; 
+      alert("Added Successfully");
     }
     else{
       new Error(response);
