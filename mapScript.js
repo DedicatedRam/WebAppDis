@@ -5,6 +5,7 @@ var loadedMarkers = null;
 var currentMarkers = [];
 var map;
 var dayDataPointLimiter = false;
+var geoLocateRun = false;
 var mapBounds = [[0, 0], [0.0]];
 
 
@@ -196,6 +197,7 @@ function initMap() {
 }
 
 function show24HrPoints(){
+  if(geoLocateRun){
   if(dayDataPointLimiter == false){dayDataPointLimiter = true}
   else if(dayDataPointLimiter == true){dayDataPointLimiter = false};
   populateDataPoints(
@@ -204,6 +206,10 @@ function show24HrPoints(){
     mapBounds[1][0],
     mapBounds[1][1]
   );
+  }
+  else{
+    alert("You must first allow the geolocater to access your location.")
+  }
 }
 
 function populateDataPoints(SWX, SWY, NEX, NEY) {
