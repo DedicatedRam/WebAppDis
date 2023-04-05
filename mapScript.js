@@ -138,6 +138,49 @@ function initMap() {
   ];
   map.setMaxBounds(mapBounds);
 
+
+  map.on('style.load', () => {
+    const layers = map.getStyle().layers;
+    const labelLayerId = layers.find(
+    (layer) => layer.type === 'symbol' && layer.layout['text-field']
+    ).id;
+     
+    map.addLayer(
+    {
+    'id': 'add-3d-buildings',
+    'source': 'composite',
+    'source-layer': 'building',
+    'filter': ['==', 'extrude', 'true'],
+    'type': 'fill-extrusion',
+    'minzoom': 15,
+    'paint': {
+    'fill-extrusion-color': '#aaa',
+     
+    'fill-extrusion-height': [
+    'interpolate',
+    ['linear'],
+    ['zoom'],
+    15,
+    0,
+    15.05,
+    ['get', 'height']
+    ],
+    'fill-extrusion-base': [
+    'interpolate',
+    ['linear'],
+    ['zoom'],
+    15,
+    0,
+    15.05,
+    ['get', 'min_height']
+    ],
+    'fill-extrusion-opacity': 0.6
+    }
+    },
+    labelLayerId
+    );
+    });
+
   var geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: false,
@@ -207,7 +250,6 @@ function show24HrPoints(){
 }
 
 function populateDataPoints(SWX, SWY, NEX, NEY) {
-  console.log("populating...");
   populated = true;
   if (currentMarkers != null) {
     for (let index = 0; index < currentMarkers.length; index++) {
@@ -282,6 +324,4 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
       });
     })
     .catch((error) => console.error(error));
-
-    console.log("populated");
 }
