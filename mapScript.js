@@ -152,9 +152,9 @@ function initMap() {
     'source-layer': 'building',
     'filter': ['==', 'extrude', 'true'],
     'type': 'fill-extrusion',
-    'minzoom': 15,
+    'minzoom': 10,
     'paint': {
-    'fill-extrusion-color': '#aaa',
+    'fill-extrusion-color': '#ffa500',
      
     'fill-extrusion-height': [
     'interpolate',
