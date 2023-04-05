@@ -34,14 +34,7 @@ function devToolsOpen() {
 function devToolsClose() {
   document.getElementById("devForm").style.display = "none";
 }
-function burgerMenu() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
+
 
 function menuOnClick() {
   document.getElementById("menu-bar").classList.toggle("change");
@@ -172,6 +165,7 @@ function initMap() {
   });
   try {
     geolocate.on("geolocate", function (e) {
+      geoLocateRun = true;
       var lon = e.coords.longitude;
       var lat = e.coords.latitude;
       mapBounds = [
