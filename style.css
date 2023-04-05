@@ -115,7 +115,7 @@ body { margin: 0; padding: 0; }
       }
       
       .nav li button:hover {
-        font-weight: bold;
+        color: black;
       }
       
       .menu-bg, #menu {
@@ -128,7 +128,7 @@ body { margin: 0; padding: 0; }
         z-index: 1;
         width: 0;
         height: 0;
-        margin: 30px 0 20px 20px;
+        margin: 50px 20px 20px 50px;
         background: radial-gradient(circle, #DC052D, #DC052D);
         border-radius: 100%;
         transition: 0.3s ease;
@@ -204,7 +204,6 @@ body { margin: 0; padding: 0; }
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    margin-right: 2%;
   }
   
   .topnav button:hover {
