@@ -144,7 +144,7 @@ body { margin: 0; padding: 0; }
 
 
   .form-container {
-    max-width: 300px;
+    max-width: 25%;
     padding: 10px;
     background-color: white;
   }
