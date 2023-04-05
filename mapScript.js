@@ -271,4 +271,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
       });
     })
     .catch((error) => console.error(error));
+
+    console.log("populated");
 }
