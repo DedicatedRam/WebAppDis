@@ -130,7 +130,7 @@ body { margin: 0; padding: 0; }
         height: 0;
         margin: 30px 0 20px 20px;
         background: radial-gradient(circle, #DC052D, #DC052D);
-        border-radius: 50%;
+        border-radius: 100%;
         transition: 0.3s ease;
       }
       
