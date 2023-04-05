@@ -235,7 +235,7 @@ function initMap() {
   });
 
   map.addControl(geolocate);
-
+  alert("Something you worth noting is there is currently a known bug in which if you have an IPhone and are using the chrome web browser the Geolocate function will not work properly. If you can use another browser to test that would be ideal. Thanks again :)");
   map.on("click", (e) => {
     // gets current mouse pointer co ordinates for testing purposes
 
