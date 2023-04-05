@@ -106,7 +106,7 @@ async function postJSON(data) {
       document.getElementById("latLabel").innerHTML = "Latitude: ";
       document.getElementById("longLabel").innerHTML = "Longitude: ";
       alert("Added Successfully");
-      console.log(data);
+      console.log(data,);
       try{
         console.log(data.properties.name);
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
