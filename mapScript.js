@@ -108,6 +108,7 @@ async function postJSON(data) {
       alert("Added Successfully");
       console.log(data);
       try{
+        console.log(data.properties.name);
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
         "<b>" +
           data.properties.name +
