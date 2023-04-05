@@ -106,6 +106,41 @@ async function postJSON(data) {
       document.getElementById("latLabel").innerHTML = "Latitude: ";
       document.getElementById("longLabel").innerHTML = "Longitude: ";
       alert("Added Successfully");
+      console.log(data);
+      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        "<b>" +
+          data.properties.name +
+          "</b>" +
+          "<br>" +
+          data.properties.description +
+          "<br>" +
+          "Posted just now"
+      );
+      let event = data.properties.type;
+      // create DOM element for the marker
+      const el = document.createElement("div");
+      if (event == "1") {
+        el.id = "markerFood";
+      }
+      if (event == "2") {
+        el.id = "markerTraffic";
+      }
+      if (event == "3") {
+        el.id = "markerCrime";
+      }
+      if (event == "4") {
+        el.id = "markerSocial";
+      }
+      if (event == "5") {
+        el.id = "markerSport";
+      }
+
+      // create the marker
+      let tempMarker = new mapboxgl.Marker(el)
+        .setLngLat(data.geometry.coordinates)
+        .setPopup(popup) // sets a popup on this marker
+        .addTo(map);
+      currentMarkers.push(tempMarker);
     } else {
       new Error(response);
       console.log(response);
