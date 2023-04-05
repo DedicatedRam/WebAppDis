@@ -11,13 +11,20 @@
 <script src="mapScript.js"></script>
 <body>
 
-  <div class="collapseBut">
-    <button class="icon" onclick="burgerMenu()">Menu</button>
-  </div>
+  <div id="menu">
+    <div id="menu-bar" onclick="menuOnClick()">
+      <div id="bar1" class="bar"></div>
+      <div id="bar2" class="bar"></div>
+      <div id="bar3" class="bar"></div>
+    </div>
     <div class="topnav">
-      <div id="myLinks">     
-        <button class="icon" onclick="show24HrPoints()">Show Last 24 Hours</button>
-        <button class="icon" onclick="showForm()">Add Event/Data Point</button>
+      <div id="myLinks">
+        <nav class="nav" id="nav">
+        <ul>     
+        <li><button class="icon" onclick="show24HrPoints()">Show Last 24 Hours</button></li>
+        <li><button class="icon" onclick="showForm()">Add Event/Data Point</button></li>
+        </ul>
+      </nav>
       </div>
     </div>
 
