@@ -135,9 +135,14 @@ function initMap() {
     container: "map",
     style: "mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk",
     minZoom: 10,
-    center: [0, 0],
+    center: [-1.4707048546857777, 53.38165168818108],
     projection: "globe",
   });
+  mapBounds = [
+    [-1.4707048546857777 - 0.0816020798784502, 53.38165168818108 - 0.036346035512274], // SouthWest
+    [-1.4707048546857777 + 0.0754066900138359, 53.38165168818108 + 0.039394074799906], // NorthEast
+  ];
+  map.setMaxBounds(mapBounds);
 
   var geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
