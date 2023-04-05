@@ -44,6 +44,8 @@ function menuOnClick() {
 
 
 function submitUserInputDataPoint() {
+  if(geoLocateRun)
+  {
   var title = document.getElementById("userInpTitle").value;
   var desc = document.getElementById("userInpDesc").value;
   var type = document.getElementById("eventsType").value;
@@ -80,6 +82,10 @@ function submitUserInputDataPoint() {
     postJSON(JSON.stringify(geojson));
     loadedMarkers.push(geojson);
   }
+}
+else{
+  alert("You must allow the geolocator to run first. It is in the top right of the screen");
+}
 }
 
 async function postJSON(data) {
