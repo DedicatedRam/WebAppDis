@@ -107,8 +107,6 @@ async function postJSON(data) {
       document.getElementById("longLabel").innerHTML = "Longitude: ";
       alert("Added Successfully");
       data = JSON.parse(data);
-      try{
-        console.log(data.properties.name);
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
         "<b>" +
           data.properties.name +
@@ -119,7 +117,6 @@ async function postJSON(data) {
           "Posted just now"
       );
       let event = data.properties.type;
-      // create DOM element for the marker
       const el = document.createElement("div");
       if (event == "1") {
         el.id = "markerFood";
@@ -136,16 +133,11 @@ async function postJSON(data) {
       if (event == "5") {
         el.id = "markerSport";
       }
-
-      // create the marker
       let tempMarker = new mapboxgl.Marker(el)
         .setLngLat(data.geometry.coordinates)
-        .setPopup(popup) // sets a popup on this marker
+        .setPopup(popup)
         .addTo(map);
       currentMarkers.push(tempMarker);
-    }catch(e){
-      console.log(e);
-    }
     } else {
       new Error(response);
       console.log(response);
@@ -154,6 +146,7 @@ async function postJSON(data) {
     console.error("Error:", error);
   }
 }
+
 
 function errorHandler(error) {
   console.error(error);
