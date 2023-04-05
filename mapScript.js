@@ -250,6 +250,7 @@ function initMap() {
       document.getElementById("latLabel").innerHTML =
         "Latitude: " + selectedLat;
         showForm();
+        listenForCoOrd = false;
     }
   });
   try {
