@@ -107,6 +107,7 @@ async function postJSON(data) {
       document.getElementById("longLabel").innerHTML = "Longitude: ";
       alert("Added Successfully");
       console.log(data);
+      try{
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
         "<b>" +
           data.properties.name +
@@ -141,6 +142,9 @@ async function postJSON(data) {
         .setPopup(popup) // sets a popup on this marker
         .addTo(map);
       currentMarkers.push(tempMarker);
+    }catch(e){
+      console.log(e);
+    }
     } else {
       new Error(response);
       console.log(response);
