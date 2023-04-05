@@ -154,7 +154,7 @@ function initMap() {
     'type': 'fill-extrusion',
     'minzoom': 10,
     'paint': {
-    'fill-extrusion-color': '#ffa500',
+    'fill-extrusion-color': '#B56576',
      
     'fill-extrusion-height': [
     'interpolate',
