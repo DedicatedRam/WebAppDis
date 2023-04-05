@@ -164,6 +164,7 @@ function errorHandler(error) {
 }
 function coOrdListener() {
   listenForCoOrd = !listenForCoOrd;
+  hideForm();
 }
 
 function initMap() {
@@ -248,6 +249,7 @@ function initMap() {
         "Longitude: " + selectedLong;
       document.getElementById("latLabel").innerHTML =
         "Latitude: " + selectedLat;
+        showForm();
     }
   });
   try {
