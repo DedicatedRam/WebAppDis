@@ -10,8 +10,13 @@ var mapBounds = [[0, 0], [0.0]];
 
 
 function showForm() {
+  if(geoLocateRun){
   var form = document.getElementById("myForm");
   form.style.animationName = "slideUp";
+  }
+  else{
+    alert("You must allow the geolocator to run first. It is in the top right of the screen");
+  }
 }
 
 function hideForm() {
