@@ -108,13 +108,13 @@ body { margin: 0; padding: 0; }
         padding: 12px 0;
       }
       
-      .nav li a {
+      .nav li button {
         color: white;
         font-size: 20px;
         text-decoration: none;
       }
       
-      .nav li a:hover {
+      .nav li button:hover {
         font-weight: bold;
       }
       
