@@ -227,64 +227,64 @@ function initMap() {
     });
 
 
-// navigator.geolocation.getCurrentPosition(function(position) {
-//   console.log("Latitude: " + position.coords.latitude);
-//   console.log("Longitude: " + position.coords.longitude);
-//   initSetUp(position.coords.latitude, position.coords.longitude );
-// }, function(error) {
-//   switch(error.code) {
-//     case error.PERMISSION_DENIED:
-//       console.log("User denied the request for Geolocation.");
-//       break;
-//     case error.POSITION_UNAVAILABLE:
-//       console.log("Location information is unavailable.");
-//       break;
-//     case error.TIMEOUT:
-//       console.log("The request to get user location timed out.");
-//       break;
-//     case error.UNKNOWN_ERROR:
-//       console.log("An unknown error occurred.");
-//       break;
-//   }
-// });
+navigator.geolocation.getCurrentPosition(function(position) {
+  console.log("Latitude: " + position.coords.latitude);
+  console.log("Longitude: " + position.coords.longitude);
+  initSetUp(position.coords.latitude, position.coords.longitude );
+}, function(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      console.log("User denied the request for Geolocation.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      console.log("Location information is unavailable.");
+      break;
+    case error.TIMEOUT:
+      console.log("The request to get user location timed out.");
+      break;
+    case error.UNKNOWN_ERROR:
+      console.log("An unknown error occurred.");
+      break;
+  }
+});
 
 
   
-  var geolocate = new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: false,
-    },
-    trackUserLocation: true,
-    showUserHeading: true,
-  });
+  // var geolocate = new mapboxgl.GeolocateControl({
+  //   positionOptions: {
+  //     enableHighAccuracy: false,
+  //   },
+  //   trackUserLocation: true,
+  //   showUserHeading: true,
+  // });
 
-  map.addControl(geolocate);
+  // map.addControl(geolocate);
 
-  try {
-    geolocate.on("geolocate", function (e) {
-      geoLocateRun = true;
-      var lon = e.coords.longitude;
-      var lat = e.coords.latitude;
-      mapBounds = [
-        [lon - 0.0816020798784502, lat - 0.036346035512274], // SouthWest
-        [lon + 0.0754066900138359, lat + 0.039394074799906], // NorthEast
-      ];
-      map.setMaxBounds(mapBounds);
+  // try {
+  //   geolocate.on("geolocate", function (e) {
+  //     geoLocateRun = true;
+  //     var lon = e.coords.longitude;
+  //     var lat = e.coords.latitude;
+  //     mapBounds = [
+  //       [lon - 0.0816020798784502, lat - 0.036346035512274], // SouthWest
+  //       [lon + 0.0754066900138359, lat + 0.039394074799906], // NorthEast
+  //     ];
+  //     map.setMaxBounds(mapBounds);
 
-      populateDataPoints(
-        mapBounds[0][0],
-        mapBounds[0][1],
-        mapBounds[1][0],
-        mapBounds[1][1]
-      );
-    });
-  } catch (e) {
-    console.log(e);
-  }
+  //     populateDataPoints(
+  //       mapBounds[0][0],
+  //       mapBounds[0][1],
+  //       mapBounds[1][0],
+  //       mapBounds[1][1]
+  //     );
+  //   });
+  // } catch (e) {
+  //   console.log(e);
+  // }
 
-  geolocate.on("error", () =>{
-    console.log("Geolocate error")
-  })
+  // geolocate.on("error", () =>{
+  //   console.log("Geolocate error")
+  // })
   alert("Something worth noting is there is currently a known bug in which if you have an IPhone and are using the chrome web browser the Geolocate function will not work properly. If you can use another browser to test that would be ideal. Thanks again :)");
   map.on("click", (e) => {
     // gets current mouse pointer co ordinates for testing purposes
