@@ -332,10 +332,11 @@ function initMap() {
       labelLayerId
     );
   });
-
+  if(window.navigator.userAgent.contains("CriOS")){
   alert(
-    "Something worth noting is there is currently a known bug in which if you have an IPhone and are using the chrome web browser the Geolocate function will not work properly. If you can use another browser to test that would be ideal. Thanks again :)"
+    "It appears you are using Google Chrome on an IPhone, this application will not work for you. Safari does work if you can use that instead. Thanks again :)"
   );
+  }
 
   map.on("click", (e) => {
     // gets current mouse pointer co ordinates for testing purposes
