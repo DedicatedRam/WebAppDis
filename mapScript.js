@@ -257,6 +257,14 @@ function addAnimatedLocToMap(la, lo){
   ]
   }
   });
+  map.addLayer({
+    'id': 'layer-with-pulsing-dot',
+    'type': 'symbol',
+    'source': 'dot-point',
+    'layout': {
+    'icon-image': 'pulsing-dot'
+    }
+    });
 
 }
 
@@ -318,39 +326,31 @@ function initMap() {
     labelLayerId
     );
 
-    map.addLayer({
-      'id': 'layer-with-pulsing-dot',
-      'type': 'symbol',
-      'source': 'dot-point',
-      'layout': {
-      'icon-image': 'pulsing-dot'
-      }
-      });
-
+    
     });
 
 
 
 
-navigator.geolocation.getCurrentPosition(function(position) {
-  console.log("Latitude: " + position.coords.latitude);
-  console.log("Longitude: " + position.coords.longitude);
-  initSetUp(position.coords.latitude, position.coords.longitude);
-}, function(error) {
-  switch(error.code) {
-    case error.PERMISSION_DENIED:
-      console.log("User denied the request for Geolocation.");
-      break;
-    case error.POSITION_UNAVAILABLE:
-      console.log("Location information is unavailable.");
-      break;
-    case error.TIMEOUT:
-      console.log("The request to get user location timed out.");
-      break;
-    case error.UNKNOWN_ERROR:
-      console.log("An unknown error occurred.");
-      break;
-  }
+  navigator.geolocation.getCurrentPosition(function(position) {
+    console.log("Latitude: " + position.coords.latitude);
+    console.log("Longitude: " + position.coords.longitude);
+    initSetUp(position.coords.latitude, position.coords.longitude);
+  }, function(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        console.log("User denied the request for Geolocation.");
+        break;
+      case error.POSITION_UNAVAILABLE:
+        console.log("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        console.log("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        console.log("An unknown error occurred.");
+        break;
+    }
 });
 
 
