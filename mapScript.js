@@ -332,6 +332,7 @@ function initMap() {
       labelLayerId
     );
   });
+  alert(window.navigator.userAgent);
   if(window.navigator.userAgent.contains("CriOS")){
   alert(
     "It appears you are using Google Chrome on an IPhone, this application will not work for you. Safari does work if you can use that instead. Thanks again :)"
