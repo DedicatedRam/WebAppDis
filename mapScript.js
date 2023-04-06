@@ -332,14 +332,10 @@ function initMap() {
       labelLayerId
     );
   });
-  let u = window.navigator.userAgent.toLowerCase();
-  // alert(u);
-  // alert(u.contains("crios"));
-  if(u.contains("crios")){
   alert(
-    "It appears you are using Google Chrome on an IPhone, this application will not work for you. Safari does work if you can use that instead. Thanks again :)"
+    "If you are using Google Chrome on an IPhone, this application will not work for you. Safari does work if you can use that instead. Thanks again :)"
   );
-  }
+  
 
   map.on("click", (e) => {
     // gets current mouse pointer co ordinates for testing purposes
