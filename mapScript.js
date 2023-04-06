@@ -226,6 +226,7 @@ function initMap() {
     );
     });
 
+  
   var geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: false,
@@ -235,6 +236,10 @@ function initMap() {
   });
 
   map.addControl(geolocate);
+
+  geolocate.on("error", () =>{
+    console.log("Geolocate error")
+  })
   alert("Something worth noting is there is currently a known bug in which if you have an IPhone and are using the chrome web browser the Geolocate function will not work properly. If you can use another browser to test that would be ideal. Thanks again :)");
   map.on("click", (e) => {
     // gets current mouse pointer co ordinates for testing purposes
