@@ -37,14 +37,6 @@ function hideFAQForm() {
   form.style.bottom = "-100%"; // hide the form off screen
 }
 
-
-function devToolsOpen() {
-  document.getElementById("devForm").style.display = "block";
-}
-function devToolsClose() {
-  document.getElementById("devForm").style.display = "none";
-}
-
 function menuOnClick() {
   document.getElementById("menu-bar").classList.toggle("change");
   document.getElementById("nav").classList.toggle("change");
@@ -169,15 +161,11 @@ function coOrdListener() {
 
 const size = 200;
 
-// This implements `StyleImageInterface`
-// to draw a pulsing dot icon on the map.
 const pulsingDot = {
   width: size,
   height: size,
   data: new Uint8Array(size * size * 4),
 
-  // When the layer is added to the map,
-  // get the rendering context for the map canvas.
   onAdd: function () {
     const canvas = document.createElement("canvas");
     canvas.width = this.width;
@@ -256,7 +244,7 @@ function initMap() {
     container: "map",
     style: "mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk",
     minZoom: 10,
-    zoom: 10,
+    zoom: 12,
     center: [-1.4707048546857777, 53.38165168818108],
     projection: "globe",
   });
