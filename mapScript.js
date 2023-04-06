@@ -27,12 +27,17 @@ function hideForm() {
   form.style.bottom = "-100%"; // hide the form off screen
 }
 
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
+function showFAQForm() {
+  var form = document.getElementById("faqForm");
+  form.style.animationName = "slideUp";
 }
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+function hideFAQForm() {
+  var form = document.getElementById("faqForm");
+  form.style.animationName = "slideDown";
+  form.style.bottom = "-100%"; // hide the form off screen
 }
+
+
 function devToolsOpen() {
   document.getElementById("devForm").style.display = "block";
 }
