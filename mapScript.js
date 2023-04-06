@@ -251,7 +251,7 @@ function initMap() {
     container: "map",
     style: "mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk",
     minZoom: 10,
-    zoom: 7,
+    zoom: 10,
     center: [-1.4707048546857777, 53.38165168818108],
     projection: "globe",
   });
