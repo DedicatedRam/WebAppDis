@@ -7,6 +7,8 @@ var map;
 var dayDataPointLimiter = false;
 var geoLocateRun = false;
 var mapBounds = [[0, 0], [0.0]];
+var userLat;
+var userLong;
 
 
 function showForm() {
@@ -324,18 +326,16 @@ function initMap() {
     }
     },
     labelLayerId
-    );
-
-    
+    );    
     });
 
 
-
+  
 
   navigator.geolocation.getCurrentPosition(function(position) {
-    console.log("Latitude: " + position.coords.latitude);
-    console.log("Longitude: " + position.coords.longitude);
-    initSetUp(position.coords.latitude, position.coords.longitude);
+    userLat = position.coords.latitude;
+    userLong = position.coords.longitude;
+    //initSetUp(position.coords.latitude, position.coords.longitude);
   }, function(error) {
     switch(error.code) {
       case error.PERMISSION_DENIED:
@@ -391,6 +391,7 @@ function initMap() {
   //   console.log("Geolocate error")
   // })
   alert("Something worth noting is there is currently a known bug in which if you have an IPhone and are using the chrome web browser the Geolocate function will not work properly. If you can use another browser to test that would be ideal. Thanks again :)");
+  initSetUp(userLat, userLong);
   map.on("click", (e) => {
     // gets current mouse pointer co ordinates for testing purposes
 
