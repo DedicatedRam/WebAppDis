@@ -251,7 +251,7 @@ function addAnimatedLocToMap(la, lo){
   'type': 'Feature',
   'geometry': {
   'type': 'Point',
-  'coordinates': [la, lo] // icon position [lng, lat]
+  'coordinates': [lo, la] // icon position [lng, lat]
   }
   }
   ]
