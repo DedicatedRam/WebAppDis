@@ -287,21 +287,24 @@ body { margin: 0; padding: 0; }
     opacity: 1;
   }
 
-  #devForm {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
+  #faqForm {
+   border: 3px solid #f1f1f1;
+   z-index: 9;
+   position: fixed;
+   bottom: -100%; /* hide the form off screen */
+   margin: 0 auto;
+   max-width: 100%;
+   background-color: #fff;
+   box-sizing: border-box;
+   animation-duration: 1s;
+   animation-timing-function: ease;
+   animation-fill-mode: forwards;
   }
 
   
-  .form-popup {
-     
-     border: 3px solid #f1f1f1;
-     z-index: 9;
-
+  #myForm {
+    border: 3px solid #f1f1f1;
+    z-index: 9;
     position: fixed;
     bottom: -100%; /* hide the form off screen */
     margin: 0 auto;
@@ -313,7 +316,23 @@ body { margin: 0; padding: 0; }
     animation-fill-mode: forwards;
   }
   @media only screen and (min-width: 480px) {
-    .form-popup {
+
+    #faqForm {
+      right:50%;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+      position: fixed;
+      bottom: -100%; /* hide the form off screen */
+      margin: 0 auto;
+      max-width: 50%;
+      background-color: #fff;
+      box-sizing: border-box;
+      animation-duration: 1s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+     }
+
+    #myForm {
      right: 15px;
      border: 3px solid #f1f1f1;
      z-index: 9;

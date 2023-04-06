@@ -21,6 +21,7 @@
         <ul>     
         <li><button class="icon" onclick="show24HrPoints()">Show Last 24 Hours</button></li>
         <li><button class="icon" onclick="showForm()">Add Event/Data Point</button></li>
+        <li><button class="icon" onclick="showFAQForm()">FAQs</button></li>
         </ul>
       </nav>
   </div>
@@ -66,12 +67,26 @@
       </form>
     </div>
 
+
+    <div class="form-popup" id="faqForm">
+      <form  class="form-container">
+        <h1>FAQs</h1>
+    
+        Welcome to the 
+        <button type="button" class="btn cancel" onclick="hideFAQForm()">Close</button>
+      </form>
+    </div>
+
+
+
+
 <div id="map"></div>
 
 <script>
 
 window.onload = function(){
   initMap();
+  showFAQForm();
 };
 
 
