@@ -410,7 +410,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
 function initSetUp(lati, long){
   try {
-      addAnimatedLocToMap(lati,long);
+      //addAnimatedLocToMap(lati,long);
       geoLocateRun = true;
       mapBounds = [
         [long - 0.0816020798784502, lati - 0.036346035512274], // SouthWest
