@@ -333,8 +333,8 @@ function initMap() {
     );
   });
   let u = window.navigator.userAgent.toLowerCase();
-  alert(u);
-  alert("contains: "+u.indexOf("crios")+"\n"["crios","iphone os","ipad os"].map(s=>s+": "+u.contains(s)).join(", "));
+  // alert(u);
+  alert(u+"\n\ncontains: "+u.indexOf("crios")+"\n"["crios","iphone os","ipad os"].map(s=>s+": "+u.contains(s)).join(", "));
   if(u.contains("crios")){
   alert(
     "It appears you are using Google Chrome on an IPhone, this application will not work for you. Safari does work if you can use that instead. Thanks again :)"
