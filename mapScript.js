@@ -332,8 +332,10 @@ function initMap() {
       labelLayerId
     );
   });
-  alert(window.navigator.userAgent);
-  if(window.navigator.userAgent.contains("iOS")){
+  let u = window.navigator.userAgent.toLowerCase();
+  alert(u);
+  alert(u.contains("crios"));
+  if(u.contains("crios")){
   alert(
     "It appears you are using Google Chrome on an IPhone, this application will not work for you. Safari does work if you can use that instead. Thanks again :)"
   );
