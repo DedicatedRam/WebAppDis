@@ -230,6 +230,7 @@ function initMap() {
 navigator.geolocation.getCurrentPosition(function(position) {
   console.log("Latitude: " + position.coords.latitude);
   console.log("Longitude: " + position.coords.longitude);
+  initSetUp(position.coords.latitude, position.coords.longitude );
 }, function(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
@@ -249,15 +250,37 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
 
   
-  var geolocate = new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: false,
-    },
-    trackUserLocation: true,
-    showUserHeading: true,
-  });
+  // var geolocate = new mapboxgl.GeolocateControl({
+  //   positionOptions: {
+  //     enableHighAccuracy: false,
+  //   },
+  //   trackUserLocation: true,
+  //   showUserHeading: true,
+  // });
 
-  map.addControl(geolocate);
+  // map.addControl(geolocate);
+
+  // try {
+  //   geolocate.on("geolocate", function (e) {
+  //     geoLocateRun = true;
+  //     var lon = e.coords.longitude;
+  //     var lat = e.coords.latitude;
+  //     mapBounds = [
+  //       [lon - 0.0816020798784502, lat - 0.036346035512274], // SouthWest
+  //       [lon + 0.0754066900138359, lat + 0.039394074799906], // NorthEast
+  //     ];
+  //     map.setMaxBounds(mapBounds);
+
+  //     populateDataPoints(
+  //       mapBounds[0][0],
+  //       mapBounds[0][1],
+  //       mapBounds[1][0],
+  //       mapBounds[1][1]
+  //     );
+  //   });
+  // } catch (e) {
+  //   console.log(e);
+  // }
 
   geolocate.on("error", () =>{
     console.log("Geolocate error")
@@ -280,14 +303,16 @@ navigator.geolocation.getCurrentPosition(function(position) {
         listenForCoOrd = false;
     }
   });
+  
+}
+
+function initSetUp(lati, long){
   try {
     geolocate.on("geolocate", function (e) {
       geoLocateRun = true;
-      var lon = e.coords.longitude;
-      var lat = e.coords.latitude;
       mapBounds = [
-        [lon - 0.0816020798784502, lat - 0.036346035512274], // SouthWest
-        [lon + 0.0754066900138359, lat + 0.039394074799906], // NorthEast
+        [long - 0.0816020798784502, lati - 0.036346035512274], // SouthWest
+        [long + 0.0754066900138359, lati + 0.039394074799906], // NorthEast
       ];
       map.setMaxBounds(mapBounds);
 
