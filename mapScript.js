@@ -12,6 +12,7 @@ var userLong;
 
 function showForm() {
   if (geoLocateRun) {
+    menuOnClick();
     var form = document.getElementById("myForm");
     form.style.animationName = "slideUp";
   } else {
@@ -331,8 +332,6 @@ function initMap() {
   
 
   map.on("click", (e) => {
-    // gets current mouse pointer co ordinates for testing purposes
-
     if (listenForCoOrd == false) {
       console.log(e.lngLat.wrap());
     }
