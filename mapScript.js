@@ -344,11 +344,6 @@ function initMap() {
   
 
   map.on("click", (e) => {
-    // gets current mouse pointer co ordinates for testing purposes
-
-    if (listenForCoOrd == false) {
-      console.log(e.lngLat.wrap());
-    }
     if (listenForCoOrd == true) {
       selectedLat = e.lngLat.lat;
       selectedLong = e.lngLat.lng;
@@ -409,9 +404,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     }
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
-    // "Access-Control-Allow-Origin": "*",
-    // "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
-    // "Access-Control-Max-Age": "86400",
   })
     .then((response) => response.json())
     .then((data) => {
