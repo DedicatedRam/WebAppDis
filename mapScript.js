@@ -397,14 +397,11 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     .then((data) => {
       loadedMarkers = data;
       loadedMarkers.forEach((e) => {
-        var elapsedMinutes = Math.round(
-          (Date.now() - e.properties.timeCreated) / (1000 * 60)
-        );
+        var elapsedMinutes = Math.round((Date.now() - e.properties.timeCreated) / (1000 * 60));
         var elapsedHours = elapsedMinutes / 60;
         var hoursWhole = Math.floor(elapsedHours);
         var minDif = elapsedMinutes - hoursWhole * 60;
         var coords = e.geometry.coordinates;
-
         var skipCondition = dayDataPointLimiter == true && hoursWhole > 24;
         if (!skipCondition) {
           if (
@@ -429,22 +426,24 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
             let event = e.properties.type;
             // create DOM element for the marker
             const el = document.createElement("div");
-            if (event == "1") {
-              el.id = "markerFood";
-            }
-            if (event == "2") {
-              el.id = "markerTraffic";
-            }
-            if (event == "3") {
-              el.id = "markerCrime";
-            }
-            if (event == "4") {
-              el.id = "markerSocial";
-            }
-            if (event == "5") {
-              el.id = "markerSport";
-            }
-
+            switch (event){
+              case("1"):
+                el.id = "markerFood";
+                break;
+              case("2"):
+                el.id = "markerTraffic";
+                break;
+              case("3"):
+                el.id = "markerCrime";
+              break;
+              case("4"):
+                el.id = "markerSocial";
+                break;
+              case("5"):
+                el.id = "markerSport";
+                break;
+              }
+            
             // create the marker
             let tempMarker = new mapboxgl.Marker(el)
               .setLngLat(coords)
