@@ -87,7 +87,8 @@ function submitUserInputDataPoint() {
       };
 
       postJSON(JSON.stringify(geojson));
-      loadedMarkers.push(geojson);
+      currentMarkers.push(geojson);
+      console.log(loadedMarkers);
     }
   } else {
     alert("You must allow the geolocator access to use your location");
@@ -403,6 +404,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     .then((response) => response.json())
     .then((data) => {
       loadedMarkers = data;
+      console.log(loadedMarkers);
       loadedMarkers.forEach((e) => {
         var elapsedMinutes = Math.round(
           (Date.now() - e.properties.timeCreated) / (1000 * 60)
