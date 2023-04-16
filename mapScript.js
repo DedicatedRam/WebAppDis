@@ -150,7 +150,7 @@ async function postJSON(data) {
         .setLngLat(data.geometry.coordinates)
         .setPopup(popup)
         .addTo(map);
-      currentMarkers.push(data);
+      currentMarkers.push(tempMarker);
     } else {
       new Error(response);
       console.log(response);
@@ -396,9 +396,9 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
   populated = true;
   if (currentMarkers != null) {
     currentMarkers = null;
-    // for (let index = 0; index < currentMarkers.length; index++) {
-    //   currentMarkers[index].pop();
-    // }
+    for (let index = 0; index < currentMarkers.length; index++) {
+      currentMarkers[index].remove();
+    }
     console.log(currentMarkers);
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
