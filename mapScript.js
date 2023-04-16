@@ -395,7 +395,6 @@ function show24HrPoints() {
 function populateDataPoints(SWX, SWY, NEX, NEY) {
   populated = true;
   if (currentMarkers != null) {
-    currentMarkers = null;
     for (let index = 0; index < currentMarkers.length; index++) {
       currentMarkers[index].remove();
     }
