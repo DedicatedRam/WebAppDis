@@ -150,7 +150,7 @@ async function postJSON(data) {
         .setLngLat(data.geometry.coordinates)
         .setPopup(popup)
         .addTo(map);
-      currentMarkers.push(tempMarker);
+      currentMarkers.push(data);
     } else {
       new Error(response);
       console.log(response);
