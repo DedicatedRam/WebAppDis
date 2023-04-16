@@ -367,12 +367,7 @@ function initSetUp(lati, long) {
     ];
     map.setMaxBounds(mapBounds);
 
-    populateDataPoints(
-      mapBounds[0][0],
-      mapBounds[0][1],
-      mapBounds[1][0],
-      mapBounds[1][1]
-    );
+    setInterval(populateDataPoints(mapBounds[0][0],mapBounds[0][1],mapBounds[1][0],mapBounds[1][1]), 2000);
   } catch (e) {
     console.log(e);
   }
