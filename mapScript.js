@@ -2,7 +2,7 @@ var listenForCoOrd = false;
 var selectedLong = "";
 var selectedLat = "";
 var loadedMarkers = null;
-var currentMarkers = null;
+var currentMarkers = [];
 var map;
 var dayDataPointLimiter = false;
 var geoLocateRun = false;
