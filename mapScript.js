@@ -2,7 +2,7 @@ var listenForCoOrd = false;
 var selectedLong = "";
 var selectedLat = "";
 var loadedMarkers = null;
-var currentMarkers = [];
+var currentMarkers = null;
 var map;
 var dayDataPointLimiter = false;
 var geoLocateRun = false;
@@ -395,9 +395,10 @@ function show24HrPoints() {
 function populateDataPoints(SWX, SWY, NEX, NEY) {
   populated = true;
   if (currentMarkers != null) {
-    for (let index = 0; index < currentMarkers.length; index++) {
-      currentMarkers[index].pop();
-    }
+    currentMarkers = null;
+    // for (let index = 0; index < currentMarkers.length; index++) {
+    //   currentMarkers[index].pop();
+    // }
     console.log(currentMarkers);
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
