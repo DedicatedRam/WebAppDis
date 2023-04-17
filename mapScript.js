@@ -400,7 +400,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     .then((response) => response.json())
     .then((data) => {
       loadedMarkers = data;
-      console.log(loadedMarkers);
       loadedMarkers.forEach((e) => {
         var elapsedMinutes = Math.round(
           (Date.now() - e.properties.timeCreated) / (1000 * 60)
@@ -412,6 +411,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
 
         var skipCondition = dayDataPointLimiter == true && hoursWhole > 24;
         if (!skipCondition) {
+          console.log(e);
           if (
             coords[0] > SWX &&
             coords[0] < NEX &&
