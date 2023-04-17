@@ -414,6 +414,8 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
         var skipCondition = dayDataPointLimiter == true && hoursWhole > 24;
         if (!skipCondition) {
           console.log("skip");
+          console.log(coords[0] + ">" + SWX + " : " + coords + "<" + NEX + " : " + coords[1] + ">" + " : "+SWY + " : " + coords[1] + "<" + NEY);
+          
           if (
             coords[0] > SWX &&
             coords[0] < NEX &&
