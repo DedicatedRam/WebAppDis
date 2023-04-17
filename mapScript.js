@@ -399,6 +399,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log("data returned.");
       loadedMarkers = data;
       loadedMarkers.forEach((e) => {
         var elapsedMinutes = Math.round(
