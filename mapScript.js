@@ -87,7 +87,6 @@ function submitUserInputDataPoint() {
       };
 
       postJSON(JSON.stringify(geojson));
-      console.log(loadedMarkers);
     }
   } else {
     alert("You must allow the geolocator access to use your location");
