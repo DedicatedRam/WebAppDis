@@ -416,6 +416,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
           console.log("skip");
           console.log(coords[0] + ">" + SWX + " : " + coords + "<" + NEX + " : " + coords[1] + ">" + " : "+SWY + " : " + coords[1] + "<" + NEY);
           //console.log(coords[0] > SWX && coords[0] < NEX && coords[1] > SWY && coords[1] < NEY);
+          console.log(e);
           console.log(coords[0] > SWX);
           console.log(coords[0] < NEX);
           console.log(coords[1] > SWY);
