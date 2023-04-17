@@ -80,7 +80,6 @@ function submitUserInputDataPoint() {
       };
 
       postJSON(JSON.stringify(geojson));
-      loadedMarkers.push(geojson);
     }
   } else {
     alert("You must allow the geolocator access to use your location");
@@ -138,11 +137,9 @@ async function postJSON(data) {
       if (event == "5") {
         el.id = "markerSport";
       }
-      let tempMarker = new mapboxgl.Marker(el)
-        .setLngLat(data.geometry.coordinates)
-        .setPopup(popup)
-        .addTo(map);
+      let tempMarker = new mapboxgl.Marker(el).setLngLat(data.geometry.coordinates).setPopup(popup).addTo(map);
       currentMarkers.push(tempMarker);
+      console.log(tempMarker);
     } else {
       new Error(response);
       console.log(response);
@@ -326,6 +323,10 @@ function initMap() {
       labelLayerId
     );
   });
+
+
+  
+
   map.on("click", (e) => {
     if (listenForCoOrd == true) {
       selectedLat = e.lngLat.lat;
@@ -350,12 +351,7 @@ function initSetUp(lati, long) {
     ];
     map.setMaxBounds(mapBounds);
 
-    populateDataPoints(
-      mapBounds[0][0],
-      mapBounds[0][1],
-      mapBounds[1][0],
-      mapBounds[1][1]
-    );
+    setInterval(populateDataPoints(mapBounds[0][0],mapBounds[0][1],mapBounds[1][0],mapBounds[1][1]), 2000);
   } catch (e) {
     console.log(e);
   }
@@ -385,6 +381,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     for (let index = 0; index < currentMarkers.length; index++) {
       currentMarkers[index].remove();
     }
+    currentMarkers = [];
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
   })
