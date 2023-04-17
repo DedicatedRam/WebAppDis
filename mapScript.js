@@ -252,7 +252,7 @@ function initMap() {
   map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk",
-    minZoom: 12,
+    minZoom: 10,
     zoom: 12,
     center: [-1.4707048546857777, 53.38165168818108],
     projection: "globe",
