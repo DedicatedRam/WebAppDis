@@ -87,7 +87,6 @@ function submitUserInputDataPoint() {
       };
 
       postJSON(JSON.stringify(geojson));
-      currentMarkers.push(geojson);
       console.log(loadedMarkers);
     }
   } else {
@@ -147,8 +146,8 @@ async function postJSON(data) {
         el.id = "markerSport";
       }
       let tempMarker = new mapboxgl.Marker(el).setLngLat(data.geometry.coordinates).setPopup(popup).addTo(map);
-      console.log(tempMarker);
       currentMarkers.push(tempMarker);
+      console.log(tempMarker);
     } else {
       new Error(response);
       console.log(response);
