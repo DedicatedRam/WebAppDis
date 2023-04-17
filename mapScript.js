@@ -252,8 +252,8 @@ function initMap() {
   map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/idlegamer/cl3itqajn008k14rzzjfzcgrk",
-    minZoom: 10,
-    zoom: 10,
+    minZoom: 12,
+    zoom: 12,
     center: [-1.4707048546857777, 53.38165168818108],
     projection: "globe",
   });
@@ -414,7 +414,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
         var skipCondition = dayDataPointLimiter == true && hoursWhole > 24;
         if (!skipCondition) {
           console.log("skip");
-          console.log(coords[0] + ">" + SWX + " : " + coords + "<" + NEX + " : " + coords[1] + ">" + " : "+SWY + " : " + coords[1] + "<" + NEY);
+          console.log(coords[0] + ">" + SWX + " : " + coords + "<" + NEX + " : " + coords[1] + ">" +SWY + " : " + coords[1] + "<" + NEY);
           //console.log(coords[0] > SWX && coords[0] < NEX && coords[1] > SWY && coords[1] < NEY);
           console.log(e);
           console.log(coords[0] > SWX);
