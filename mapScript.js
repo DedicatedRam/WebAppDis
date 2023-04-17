@@ -146,10 +146,8 @@ async function postJSON(data) {
       if (event == "5") {
         el.id = "markerSport";
       }
-      let tempMarker = new mapboxgl.Marker(el)
-        .setLngLat(data.geometry.coordinates)
-        .setPopup(popup)
-        .addTo(map);
+      let tempMarker = new mapboxgl.Marker(el).setLngLat(data.geometry.coordinates).setPopup(popup).addTo(map);
+      console.log(tempMarker);
       currentMarkers.push(tempMarker);
     } else {
       new Error(response);
