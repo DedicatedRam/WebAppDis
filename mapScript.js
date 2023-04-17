@@ -279,6 +279,7 @@ function initMap() {
       function (position) {
         userLat = position.coords.latitude;
         userLong = position.coords.longitude;
+        console.log(position.coords.latitude, position.coords.longitude);
         initSetUp(position.coords.latitude, position.coords.longitude);
       },
       function (error) {
