@@ -279,7 +279,6 @@ function initMap() {
       function (position) {
         userLat = position.coords.latitude;
         userLong = position.coords.longitude;
-        console.log(position.coords.latitude, position.coords.longitude);
         initSetUp(position.coords.latitude, position.coords.longitude);
       },
       function (error) {
@@ -394,13 +393,11 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
       currentMarkers[index].remove();
     }
     currentMarkers = [];
-    console.log(currentMarkers);
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("data returned.", data);
       loadedMarkers = data;
       loadedMarkers.forEach((e) => {
         var elapsedMinutes = Math.round(
@@ -419,7 +416,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
             coords[1] > SWY &&
             coords[1] < NEY
           ) {
-            console.log(e);
             // create the popup
             const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
               "<b>" +
