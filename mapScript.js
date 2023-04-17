@@ -392,6 +392,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     for (let index = 0; index < currentMarkers.length; index++) {
       currentMarkers[index].remove();
     }
+    currentMarkers = [];
     console.log(currentMarkers);
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
