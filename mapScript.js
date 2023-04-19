@@ -458,6 +458,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
           }
         }
       });
+      console.log("list fin");
     })
     .catch((error) => console.error(error));
 }
