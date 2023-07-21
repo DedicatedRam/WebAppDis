@@ -388,6 +388,12 @@ function show24HrPoints() {
 
 function populateDataPoints(SWX, SWY, NEX, NEY) {
   populated = true;
+  var paramsJson = {
+    SWX:SWX,
+    SWY:SWY,
+    NEX:NEX,
+    NEY:NEY,
+  };
   if (currentMarkers != null) {
     for (let index = 0; index < currentMarkers.length; index++) {
       currentMarkers[index].remove();
@@ -395,7 +401,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     currentMarkers = [];
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
-    body: JSON.stringify(SWX, SWY, NEX, NEY),
+    body: JSON.stringify(paramsJson),
   })
     .then((response) => response.json())
     .then((data) => {
