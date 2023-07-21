@@ -395,6 +395,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     currentMarkers = [];
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
+    body: JSON.stringify(SWX, SWY, NEX, NEY),
   })
     .then((response) => response.json())
     .then((data) => {
