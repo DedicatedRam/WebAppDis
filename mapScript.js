@@ -425,7 +425,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
         //     coords[1] > SWY &&
         //     coords[1] < NEY
         //   ) {
-            console.log(e);
             // create the popup
             const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
               "<b>" +
