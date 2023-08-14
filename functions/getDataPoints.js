@@ -2,11 +2,11 @@ export async function onRequest(context) {
     const filterParameter = await context.request.json();
     const kList = await context.env.dataPoints.list();
     const jsnList = [];
-
+    console.log(filterParameter);
     for (const id of kList) {
         const element = JSON.parse(await context.env.dataPoints.get(id));
         const coords = element.geometry.coordinates;
-        
+        console.log(coords);
         if (
             coords[0] > filterParameter.SWX &&
             coords[0] < filterParameter.NEX &&
