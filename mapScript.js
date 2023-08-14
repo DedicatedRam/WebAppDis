@@ -409,13 +409,13 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
       loadedMarkers = data;
       console.log(loadedMarkers);
       loadedMarkers.forEach((e) => {
-        // var elapsedMinutes = Math.round(
-        //   (Date.now() - e.properties.timeCreated) / (1000 * 60)
-        // );
-        // var elapsedHours = elapsedMinutes / 60;
-        // var hoursWhole = Math.floor(elapsedHours);
-        // var minDif = elapsedMinutes - hoursWhole * 60;
-        // var coords = e.geometry.coordinates;
+        var elapsedMinutes = Math.round(
+          (Date.now() - e.properties.timeCreated) / (1000 * 60)
+        );
+        var elapsedHours = elapsedMinutes / 60;
+        var hoursWhole = Math.floor(elapsedHours);
+        var minDif = elapsedMinutes - hoursWhole * 60;
+        var coords = e.geometry.coordinates;
 
         // var skipCondition = dayDataPointLimiter == true && hoursWhole > 24;
         // if (!skipCondition) {
