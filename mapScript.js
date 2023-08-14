@@ -389,10 +389,10 @@ function show24HrPoints() {
 function populateDataPoints(SWX, SWY, NEX, NEY) {
   populated = true;
   var paramsJson = {
-    SWX:SWX,
-    SWY:SWY,
-    NEX:NEX,
-    NEY:NEY,
+    SWX,
+    SWY,
+    NEX,
+    NEY,
   };
   if (currentMarkers != null) {
     for (let index = 0; index < currentMarkers.length; index++) {
