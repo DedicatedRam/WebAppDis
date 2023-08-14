@@ -401,28 +401,30 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     currentMarkers = [];
   }
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
+    method: "POST",
     body: JSON.stringify(paramsJson),
   })
     .then((response) => response.json())
     .then((data) => {
       loadedMarkers = data;
+      console.log(loadedMarkers);
       loadedMarkers.forEach((e) => {
-        var elapsedMinutes = Math.round(
-          (Date.now() - e.properties.timeCreated) / (1000 * 60)
-        );
-        var elapsedHours = elapsedMinutes / 60;
-        var hoursWhole = Math.floor(elapsedHours);
-        var minDif = elapsedMinutes - hoursWhole * 60;
-        var coords = e.geometry.coordinates;
+        // var elapsedMinutes = Math.round(
+        //   (Date.now() - e.properties.timeCreated) / (1000 * 60)
+        // );
+        // var elapsedHours = elapsedMinutes / 60;
+        // var hoursWhole = Math.floor(elapsedHours);
+        // var minDif = elapsedMinutes - hoursWhole * 60;
+        // var coords = e.geometry.coordinates;
 
-        var skipCondition = dayDataPointLimiter == true && hoursWhole > 24;
-        if (!skipCondition) {
-          if (
-            coords[0] > SWX &&
-            coords[0] < NEX &&
-            coords[1] > SWY &&
-            coords[1] < NEY
-          ) {
+        // var skipCondition = dayDataPointLimiter == true && hoursWhole > 24;
+        // if (!skipCondition) {
+        //   if (
+        //     coords[0] > SWX &&
+        //     coords[0] < NEX &&
+        //     coords[1] > SWY &&
+        //     coords[1] < NEY
+        //   ) {
             console.log(e);
             // create the popup
             const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -463,8 +465,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
               .addTo(map);
             currentMarkers.push(tempMarker);
           }
-        }
-      });
+      );
       console.log("list fin");
     })
     .catch((error) => console.error(error));
