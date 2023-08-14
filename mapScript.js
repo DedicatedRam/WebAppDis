@@ -400,6 +400,7 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     }
     currentMarkers = [];
   }
+  console.log(paramsJson);
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
     method: "POST",
     body: JSON.stringify(paramsJson),
