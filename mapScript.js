@@ -396,7 +396,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("fetched data recieved");
       loadedMarkers = data;
       console.log(loadedMarkers);
       loadedMarkers.forEach((e) => {
@@ -405,15 +404,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
         var hoursWhole = Math.floor(elapsedHours);
         var minDif = elapsedMinutes - hoursWhole * 60;
         var coords = e.geometry.coordinates;
-
-        // var skipCondition = dayDataPointLimiter == true && hoursWhole > 24;
-        // if (!skipCondition) {
-        //   if (
-        //     coords[0] > SWX &&
-        //     coords[0] < NEX &&
-        //     coords[1] > SWY &&
-        //     coords[1] < NEY
-        //   ) {
             // create the popup
             const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
               "<b>" +
