@@ -1,3 +1,0 @@
-0,TestDataName,TestDataDesc,TestDataType,32.009,0.0
-1,TestDataName,TestDataDesc,TestDataType,32.009,1.0
-2,TestDataName,TestDataDesc,TestDataType,32.009,2.0
