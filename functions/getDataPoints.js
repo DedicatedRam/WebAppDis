@@ -4,7 +4,7 @@ export async function onRequest(context) {
     const jsnList = [];
     for (const id of kList) {
         const element = JSON.parse(await context.env.dataPoints.get(id));
-        const coords = element.geometry.coordinates;
+        //const coords = element.geometry.coordinates;
         //console.log(element);
         // if (
         //     coords[0] > filterParameter[0] &&
