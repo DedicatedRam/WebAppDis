@@ -5,16 +5,16 @@ export async function onRequest(context) {
     for (let index = 0; index < kList.length; index++) {
         let id = kList[index].name;
         const element = JSON.parse(await context.env.dataPoints.get(id));
-        //const coords = element.geometry.coordinates;
-        //console.log(element);
-        // if (
-        //     coords[0] > filterParameter[0] &&
-        //     coords[0] < filterParameter[1] &&
-        //     coords[1] > filterParameter[2] &&
-        //     coords[1] < filterParameter[3]
-        // ) {
+        const coords = element.geometry.coordinates;
+        console.log(element);
+        if (
+            coords[0] > filterParameter[0] &&
+            coords[0] < filterParameter[1] &&
+            coords[1] > filterParameter[2] &&
+            coords[1] < filterParameter[3]
+        ) {
             jsnList.push(element);
-        //}
+        }
     }
 
     const corsHeaders = {
