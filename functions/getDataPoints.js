@@ -7,10 +7,10 @@ export async function onRequest(context) {
         const coords = element.geometry.coordinates;
         console.log(element);
         if (
-            coords[0] > filterParameter.SWX &&
-            coords[0] < filterParameter.NEX &&
-            coords[1] > filterParameter.SWY &&
-            coords[1] < filterParameter.NEY
+            coords[0] > filterParameter[0] &&
+            coords[0] < filterParameter[1] &&
+            coords[1] > filterParameter[2] &&
+            coords[1] < filterParameter[3]
         ) {
             jsnList.push(element);
         }
