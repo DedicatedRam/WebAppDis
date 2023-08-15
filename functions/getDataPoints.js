@@ -1,8 +1,8 @@
 export async function onRequest(context) {
     //const filterParameter = await context.request.json();
-    const kList = await context.env.dataPoints.list();
+    const kList = (await context.env.dataPoints.list()).keys;
     const jsnList = [];
-    for (const id of kList.keys()) {
+    for (const id of kList) {
         const element = JSON.parse(await context.env.dataPoints.get(id));
         const coords = element.geometry.coordinates;
         //console.log(element);
