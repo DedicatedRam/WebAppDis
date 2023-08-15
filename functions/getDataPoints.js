@@ -15,7 +15,7 @@ export async function onRequest(context) {
         // ) {
         //     jsnList.push(element);
         // }
-        if (element.properties.type == 1){
+        if (element.properties.type === 1){
             jsnList.push(element);
         }
     }
