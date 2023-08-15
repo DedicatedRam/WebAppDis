@@ -22,5 +22,5 @@ export async function onRequest(context) {
         "Access-Control-Max-Age": "86400",
     };
 
-    return new Response(JSON.stringify(jsnList), { headers: corsHeaders });
+    return new Response(JSON.stringify(filterParameter), { headers: corsHeaders });
 }

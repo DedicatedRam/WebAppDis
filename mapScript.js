@@ -407,7 +407,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       loadedMarkers = data;
       console.log(loadedMarkers);
       loadedMarkers.forEach((e) => {
