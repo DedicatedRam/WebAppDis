@@ -6,14 +6,14 @@ export async function onRequest(context) {
         const element = JSON.parse(await context.env.dataPoints.get(id));
         const coords = element.geometry.coordinates;
         console.log(element);
-        // if (
-        //     coords[0] > filterParameter.SWX &&
-        //     coords[0] < filterParameter.NEX &&
-        //     coords[1] > filterParameter.SWY &&
-        //     coords[1] < filterParameter.NEY
-        // ) {
-        //     jsnList.push(element);
-        // }
+        if (
+            coords[0] > filterParameter.SWX &&
+            coords[0] < filterParameter.NEX &&
+            coords[1] > filterParameter.SWY &&
+            coords[1] < filterParameter.NEY
+        ) {
+            jsnList.push(element);
+        }
     }
 
     const corsHeaders = {
@@ -22,5 +22,5 @@ export async function onRequest(context) {
         "Access-Control-Max-Age": "86400",
     };
 
-    return new Response(JSON.stringify(filterParameter), { headers: corsHeaders });
+    return new Response(JSON.stringify(jsnList), { headers: corsHeaders });
 }
