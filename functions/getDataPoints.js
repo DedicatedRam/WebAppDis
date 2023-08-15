@@ -1,5 +1,5 @@
 export async function onRequest(context) {
-    //const filterParameter = await context.request.json();
+    const filterParameter = await context.request.json();
     const kList = (await context.env.dataPoints.list()).keys;
     const jsnList = [];
     for (let index = 0; index < kList.length; index++) {
