@@ -274,6 +274,20 @@ body { margin: 0; padding: 0; }
    animation-fill-mode: forwards;
   }
 
+  #loginForm {
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    position: fixed;
+    bottom: -100%; /* hide the form off screen */
+    margin: 0 auto;
+    max-width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+   }
+
   
   #myForm {
     border: 3px solid #f1f1f1;
@@ -291,6 +305,21 @@ body { margin: 0; padding: 0; }
   @media only screen and (min-width: 480px) {
 
     #faqForm {
+      right:50%;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+      position: fixed;
+      bottom: -100%; /* hide the form off screen */
+      margin: 0 auto;
+      max-width: 50%;
+      background-color: #fff;
+      box-sizing: border-box;
+      animation-duration: 1s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+     }
+
+     #loginForm {
       right:50%;
       border: 3px solid #f1f1f1;
       z-index: 9;
