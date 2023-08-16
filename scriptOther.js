@@ -8,6 +8,16 @@ function hashPassword(password) {
   return { salt, hashedPassword };
 }
 
+function showLoginForm() {
+  var form = document.getElementById("loginForm");
+  form.style.animationName = "slideUp";
+}
+function hideLoginForm() {
+  var form = document.getElementById("loginForm");
+  form.style.animationName = "slideDown";
+  form.style.bottom = "-100%"; // hide the form off screen
+}
+
 
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
