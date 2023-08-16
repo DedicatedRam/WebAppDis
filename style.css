@@ -320,7 +320,7 @@ body { margin: 0; padding: 0; }
      }
 
      #loginForm {
-      right:50%;
+      right:5%;
       border: 3px solid #f1f1f1;
       z-index: 9;
       position: fixed;
