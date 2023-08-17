@@ -12,6 +12,7 @@ async function loginSubmit(){
   const userName = document.getElementById('userInpUserName').value;
   const pass = hashPassword(document.getElementById('userInpPassword').value);
   const params = {userName, pass};
+  console.log(pass);
   fetch("https://cas-4d0.pages.dev/getUsers",{
     method: "POST",
     body: JSON.stringify(params),
