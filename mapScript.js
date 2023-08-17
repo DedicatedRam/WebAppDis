@@ -391,7 +391,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     }
     currentMarkers = [];
   }
-  console.log(paramsJson);
   fetch("https://cas-4d0.pages.dev/getDataPoints", {
     method: "POST",
     body: JSON.stringify(paramsJson),
@@ -399,7 +398,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
     .then((response) => response.json())
     .then((data) => {
       loadedMarkers = data;
-      console.log(loadedMarkers);
       loadedMarkers.forEach((e) => {
         var elapsedMinutes = Math.round((Date.now() - e.properties.timeCreated) / (1000 * 60));
         var elapsedHours = elapsedMinutes / 60;
@@ -448,7 +446,6 @@ function populateDataPoints(SWX, SWY, NEX, NEY) {
             currentMarkers.push(tempMarker);
           }
       );
-      console.log("list fin");
     })
     .catch((error) => console.error(error));
 }
