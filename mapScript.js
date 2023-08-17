@@ -22,6 +22,8 @@ function showForm() {
   }
 }
 
+
+
 function hideForm() {
   var form = document.getElementById("myForm");
   form.style.animationName = "slideDown";
