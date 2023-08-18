@@ -14,6 +14,10 @@ async function hashPassword(password) {
   return { salt: Array.from(salt), hashedPassword };
 }
 
+function goToRegPage(){
+  window.location.href = "register.html";
+}
+
 
 async function loginSubmit(){
   const userName = document.getElementById('userInpUserName').value;
@@ -44,21 +48,20 @@ function hideLoginForm() {
   form.style.bottom = "-100%"; // hide the form off screen
 }
 
+function register() {
+  const form = document.getElementById("registration-form");
 
-// loginForm.addEventListener("submit", async (event) => {
-//   event.preventDefault();
+  const username = sanitizeInput(form.querySelector('input[type="text"]').value);
+  const phoneNumber = sanitizeInput(form.querySelector('input[type="tel"]').value);
+  const password = sanitizeInput(form.querySelector('input[type="password"]').value);
 
-//   const username = document.getElementById("username").value;
-//   const password = document.getElementById("password").value;
+  alert("Registration successful!\n\nUsername: " + username + "\nPhone Number: " + phoneNumber);
+  // create and send json object to backend here
 
-//   const { salt, hashedPassword } = hashPassword(password);
+  form.reset();
+}
 
-//   // In a real scenario, you would send the username, salt, and hashedPassword to the server for verification
+function sanitizeInput(input) {
+  return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
 
-//   // For this example, let's simulate a successful login
-//   loginMessage.textContent = "Login successful!";
-//   loginMessage.style.color = "green";
-//   setTimeout(() => {
-//     loginPopup.style.display = "none";
-//   }, 1500);
-// });
