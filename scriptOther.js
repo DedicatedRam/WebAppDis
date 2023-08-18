@@ -57,7 +57,7 @@ function register() {
 
   alert("Registration successful!\n\nUsername: " + username + "\nPhone Number: " + phoneNumber);
   // create and send json object to backend here
-
+  console.log(password);
   form.reset();
 }
 
