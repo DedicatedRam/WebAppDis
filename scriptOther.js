@@ -8,7 +8,9 @@ function hashPassword(password) {
 
 async function loginSubmit(){
   const userName = document.getElementById('userInpUserName').value;
+  console.log(document.getElementById('userInpPassword').value);
   const pass = hashPassword(document.getElementById('userInpPassword').value);
+  console.log(pass);
   const params = {userName, pass};
   console.log(pass);
   fetch("https://cas-4d0.pages.dev/getUsers",{
