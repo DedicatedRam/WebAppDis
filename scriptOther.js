@@ -60,7 +60,7 @@ function register() {
     phoneNumber: phoneNumber,
     password: password
   };
-  console.log(jsonObject);
+  console.log(JSON.stringify(jsonObject));
 
   fetch("https://cas-4d0.pages.dev/putUser",{
     method: "POST",

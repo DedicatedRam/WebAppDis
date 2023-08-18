@@ -9,18 +9,18 @@ export async function onRequest(context) {
         }
         return new Response(null, { status: 204, headers: headers });
       } else if (context.request.method === 'POST') {
-        let kList = (await context.env.users.list()).keys;
-        let numberInList = kList.length;
-        const body = await context.request.json();
-        await context.env.users.put(numberInList, body);
-        const headers = {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        }
-        var retMsg = {
-          msg : "Success"
-        } 
-        return new Response(JSON.stringify(retMsg), { status: 201, headers: headers });
+            let kList = (await context.env.users.list()).keys;
+            let numberInList = kList.length;
+            const body = await context.request.json();
+            await context.env.users.put(numberInList, body);
+            const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            }
+            var retMsg = {
+            msg : "Success"
+            } 
+            return new Response(JSON.stringify(retMsg), { status: 201, headers: headers });
       } else {
         // respond with method not allowed
         const headers = {
