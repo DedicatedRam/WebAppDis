@@ -55,9 +55,21 @@ function register() {
   const phoneNumber = sanitizeInput(form.querySelector('input[type="tel"]').value);
   const password = hashPassword(sanitizeInput(form.querySelector('input[type="password"]').value));
 
-  alert("Registration successful!\n\nUsername: " + username + "\nPhone Number: " + phoneNumber);
-  // create and send json object to backend here
-  console.log(password);
+  const jsonObject = {
+    email: username,
+    phoneNumber: phoneNumber,
+    password: password
+  };
+
+  fetch("https://cas-4d0.pages.dev/putUser",{
+    method: "POST",
+    body: JSON.stringify(jsonObject),
+  })
+  .then((response) => response.json())
+    .then((data) =>{
+      console.log(data);
+    }).catch((error) => console.error(error));
+
   form.reset();
 }
 
