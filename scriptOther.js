@@ -51,7 +51,7 @@ function hideLoginForm() {
 function register() {
   const form = document.getElementById("registration-form");
 
-  const username = sanitizeInput(form.querySelector('input[type="text"]').value);
+  const username = sanitizeInput(form.querySelector('input[type="email"]').value);
   const phoneNumber = sanitizeInput(form.querySelector('input[type="tel"]').value);
   const password = sanitizeInput(form.querySelector('input[type="password"]').value);
 
