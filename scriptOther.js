@@ -1,10 +1,19 @@
-function hashPassword(password) {
-  const salt = crypto.randomBytes(16).toString('hex');
-  const hash = crypto.createHash('sha256');
-  hash.update(salt + password);
-  const hashedPassword = hash.digest('hex');
-  return { salt, hashedPassword };
+async function hashPassword(password) {
+  const salt = new Uint8Array(16);
+  crypto.getRandomValues(salt);
+
+  const encoder = new TextEncoder();
+  const passwordData = encoder.encode(password);
+  const combinedData = new Uint8Array(salt.length + passwordData.length);
+  combinedData.set(salt);
+  combinedData.set(passwordData, salt.length);
+
+  const hashBuffer = await crypto.subtle.digest('SHA-256', combinedData);
+  const hashedPassword = Array.from(new Uint8Array(hashBuffer)).map(byte => byte.toString(16).padStart(2, '0')).join('');
+
+  return { salt: Array.from(salt), hashedPassword };
 }
+
 
 async function loginSubmit(){
   const userName = document.getElementById('userInpUserName').value;
