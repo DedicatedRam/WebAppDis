@@ -53,7 +53,7 @@ function register() {
 
   const username = sanitizeInput(form.querySelector('input[type="email"]').value);
   const phoneNumber = sanitizeInput(form.querySelector('input[type="tel"]').value);
-  const password = sanitizeInput(form.querySelector('input[type="password"]').value);
+  const password = hashPassword(sanitizeInput(form.querySelector('input[type="password"]').value));
 
   alert("Registration successful!\n\nUsername: " + username + "\nPhone Number: " + phoneNumber);
   // create and send json object to backend here
