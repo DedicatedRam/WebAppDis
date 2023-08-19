@@ -62,28 +62,42 @@ function register() {
   };
   console.log(JSON.stringify(jsonObject));
 
-  fetch("https://cas-4d0.pages.dev/putUser", {
-  method: "POST",
-  body: JSON.stringify(jsonObject),
-})
-  .then((response) => {
-    // Log the response content
-    return response.text(); // or response.blob() if it's not text
-  })
-  .then((content) => {
-    console.log("Response Content:", content);
-    // Now, try to parse the content as JSON
-    try {
-      const data = JSON.parse(content);
-      console.log(data);
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
-    }
-  })
-  .catch((error) => console.error(error));
+  postUser(jsonObject);
 
   form.reset();
 }
+
+async function postUser(jsnOb){
+  try {
+    const response = await fetch("https://cas-4d0.pages.dev/putUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jsonObject),
+    })
+      .then((response) => {
+        // Log the response content
+        return response.text(); // or response.blob() if it's not text
+      })
+      .then((content) => {
+        console.log("Response Content:", content);
+        // Now, try to parse the content as JSON
+        try {
+          const data = JSON.parse(content);
+          console.log(data);
+        } catch (error) {
+          console.error("Error parsing JSON:", error);
+        }
+      })
+      .catch((error) => console.error(error));
+  } catch(error){
+    console.error(error);
+  }
+
+
+}
+
 
 function sanitizeInput(input) {
   return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
