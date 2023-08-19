@@ -74,7 +74,7 @@ async function postUser(jsnOb){
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(jsonObject),
+      body: JSON.stringify(jsnOb),
     })
       .then((response) => {
         // Log the response content
